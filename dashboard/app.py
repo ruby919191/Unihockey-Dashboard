@@ -56,19 +56,34 @@ from src.analysis.goals import (
 
 
 
+
 # 🗺️ Shotmaps Helper
 
+# 🗺️ Shotmaps Helper
 def show_shotmaps(game_id: str, saison: str):
-    # Absoluten Pfad zum aktuellen Script-Verzeichnis ermitteln
-    base_path = os.path.dirname(os.path.abspath(__file__))
-    # Gehe vom aktuellen Dashboard-Verzeichnis einen Schritt zurück
-    project_root = os.path.abspath(os.path.join(base_path, ".."))
-    shotmap_dir = os.path.join(project_root, "assets", "shotmaps", saison)
+    # Verwende aktuelles Arbeitsverzeichnis
+    base_path = os.getcwd()
+    shotmap_dir = os.path.join(base_path, "assets", "shotmaps", saison)
 
     st.subheader("📊 Shotmaps")
+
+    # 🔍 Debug-Infos
+    st.write("📁 Aktuelles Arbeitsverzeichnis:", base_path)
+    st.write("🔎 Erwarteter Shotmap-Pfad:", shotmap_dir)
+
     if not os.path.exists(shotmap_dir):
-        st.error(f"Verzeichnis existiert nicht: {shotmap_dir}")
-        st.info(f"Verfügbare Pfade: {os.listdir(project_root)}")
+        st.error(f"❌ Verzeichnis existiert nicht: {shotmap_dir}")
+        try:
+            st.info(f"Inhalt des Arbeitsverzeichnisses: {os.listdir(base_path)}")
+        except Exception as e:
+            st.warning(f"Fehler beim Lesen des Arbeitsverzeichnisses: {e}")
+        return
+
+    try:
+        all_files = os.listdir(shotmap_dir)
+        st.write("📸 Gefundene Dateien im Shotmap-Ordner:", all_files)
+    except Exception as e:
+        st.error(f"Fehler beim Lesen des Shotmap-Verzeichnisses: {e}")
         return
 
     labels = ["Chances_For", "Chances_Against", "Tore_For", "Tore_Against"]
@@ -77,29 +92,29 @@ def show_shotmaps(game_id: str, saison: str):
     images_found = False
 
     for i, label in enumerate(labels):
-        pattern_prefix = f"{game_id}_vs_"
+        pattern_prefix = f"{game_id}_"
         pattern_suffix = f"_{label}.jpg"
+
         matched_files = [
-            file for file in os.listdir(shotmap_dir)
+            file for file in all_files
             if file.startswith(pattern_prefix) and file.endswith(pattern_suffix)
         ]
+
+        st.write(f"🔍 Suche nach: {pattern_prefix}...{pattern_suffix} → Gefunden: {matched_files}")
 
         if matched_files:
             image_path = os.path.join(shotmap_dir, matched_files[0])
             try:
                 image = Image.open(image_path)
-                cols[i % 2].image(image, caption=label.replace("_", " "), use_column_width=True)
+                cols[i % 2].image(image, caption=label.replace("_", " "), use_container_width=True)
                 images_found = True
             except Exception as e:
-                cols[i % 2].error(f"Fehler beim Öffnen von {matched_files[0]}: {e}")
+                cols[i % 2].error(f"Fehler beim Laden von {matched_files[0]}: {e}")
         else:
             cols[i % 2].warning(f"Keine Datei für {label} gefunden.")
 
     if not images_found:
-        st.info("Keine Shotmap-Bilder wurden gefunden. Prüfe Dateinamen und Game-ID.")
-
-
-
+        st.info("Keine Shotmap-Bilder gefunden. Bitte Game-ID und Dateinamen prüfen.")
 
 
 # =============================
