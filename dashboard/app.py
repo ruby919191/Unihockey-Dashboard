@@ -59,26 +59,29 @@ from src.analysis.goals import (
 # 🗺️ Shotmaps Helper
 
 def show_shotmaps(game_id: str, saison: str):
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    shotmap_dir = os.path.join(base_path, "assets", "shotmaps", saison)
+    # Absoluten Pfad zum aktuellen Script-Verzeichnis ermitteln
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    # Gehe vom aktuellen Dashboard-Verzeichnis einen Schritt zurück
+    project_root = os.path.abspath(os.path.join(base_path, ".."))
+    shotmap_dir = os.path.join(project_root, "assets", "shotmaps", saison)
 
     st.subheader("📊 Shotmaps")
     if not os.path.exists(shotmap_dir):
         st.error(f"Verzeichnis existiert nicht: {shotmap_dir}")
+        st.info(f"Verfügbare Pfade: {os.listdir(project_root)}")
         return
 
     labels = ["Chances_For", "Chances_Against", "Tore_For", "Tore_Against"]
     cols = st.columns(2)
 
-    vorhandene_dateien = os.listdir(shotmap_dir)
-    st.info(f"Dateien in {shotmap_dir}: {vorhandene_dateien}")
-
     images_found = False
 
     for i, label in enumerate(labels):
+        pattern_prefix = f"{game_id}_vs_"
+        pattern_suffix = f"_{label}.jpg"
         matched_files = [
-            file for file in vorhandene_dateien
-            if file.startswith(game_id) and label.lower() in file.lower()
+            file for file in os.listdir(shotmap_dir)
+            if file.startswith(pattern_prefix) and file.endswith(pattern_suffix)
         ]
 
         if matched_files:
@@ -93,7 +96,8 @@ def show_shotmaps(game_id: str, saison: str):
             cols[i % 2].warning(f"Keine Datei für {label} gefunden.")
 
     if not images_found:
-        st.info("Keine Shotmap-Bilder gefunden. Prüfe Dateinamen und Datum.")
+        st.info("Keine Shotmap-Bilder wurden gefunden. Prüfe Dateinamen und Game-ID.")
+
 
 
 
