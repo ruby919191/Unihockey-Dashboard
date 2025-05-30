@@ -56,39 +56,38 @@ from src.analysis.goals import (
 
 
 
-
 # 🗺️ Shotmaps Helper
 
-# 🗺️ Shotmaps Helper
+
+import os
+import streamlit as st
+from PIL import Image
+
 def show_shotmaps(game_id: str, saison: str):
-    # Verwende aktuelles Arbeitsverzeichnis
-    base_path = os.getcwd()
+    # 📍 Absoluter Pfad zur Projektwurzel – stabil auf Streamlit Cloud
+    base_path = os.path.dirname(os.path.abspath(__file__))        # z. B. dashboard/app.py
+    base_path = os.path.abspath(os.path.join(base_path, ".."))    # gehe eine Ebene hoch zur Projektwurzel
     shotmap_dir = os.path.join(base_path, "assets", "shotmaps", saison)
 
     st.subheader("📊 Shotmaps")
 
-    # 🔍 Debug-Infos
-    st.write("📁 Aktuelles Arbeitsverzeichnis:", base_path)
-    st.write("🔎 Erwarteter Shotmap-Pfad:", shotmap_dir)
+    # 🧪 Debug (entfernbar für Deployment)
+    st.write("📁 Projektpfad:", base_path)
+    st.write("📂 Erwarteter Shotmap-Pfad:", shotmap_dir)
 
     if not os.path.exists(shotmap_dir):
         st.error(f"❌ Verzeichnis existiert nicht: {shotmap_dir}")
-        try:
-            st.info(f"Inhalt des Arbeitsverzeichnisses: {os.listdir(base_path)}")
-        except Exception as e:
-            st.warning(f"Fehler beim Lesen des Arbeitsverzeichnisses: {e}")
         return
 
     try:
         all_files = os.listdir(shotmap_dir)
-        st.write("📸 Gefundene Dateien im Shotmap-Ordner:", all_files)
+        st.write("📸 Dateien im Ordner:", all_files)
     except Exception as e:
-        st.error(f"Fehler beim Lesen des Shotmap-Verzeichnisses: {e}")
+        st.error(f"Fehler beim Lesen des Ordners: {e}")
         return
 
     labels = ["Chances_For", "Chances_Against", "Tore_For", "Tore_Against"]
     cols = st.columns(2)
-
     images_found = False
 
     for i, label in enumerate(labels):
@@ -100,7 +99,7 @@ def show_shotmaps(game_id: str, saison: str):
             if file.startswith(pattern_prefix) and file.endswith(pattern_suffix)
         ]
 
-        st.write(f"🔍 Suche nach: {pattern_prefix}...{pattern_suffix} → Gefunden: {matched_files}")
+        st.write(f"🔍 Suche: {pattern_prefix}...{pattern_suffix} → Gefunden: {matched_files}")
 
         if matched_files:
             image_path = os.path.join(shotmap_dir, matched_files[0])
@@ -115,6 +114,8 @@ def show_shotmaps(game_id: str, saison: str):
 
     if not images_found:
         st.info("Keine Shotmap-Bilder gefunden. Bitte Game-ID und Dateinamen prüfen.")
+
+
 
 
 # =============================
