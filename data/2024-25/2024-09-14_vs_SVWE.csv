@@ -1,0 +1,123 @@
+Spiel,Action,Ballbesitzwechsel,Drittel,Linien For,Nachsetzen_Good_Bad,Nummerische Spielsituation,Schusslabels,Schussmetrik,Spieler Tigers,Spieler Tigers 2,Taktische Spielsituation,XG,ZOE_For,ZOE_Against
+MS1_SVWE,High Q Chance Against: 1,Ballbesitzwechsel Nein,D1,L2,,5:5,Direkt,Auf Tor,,,Nachsetzen,0.5,,
+MS1_SVWE,High Q Chance Against: 2,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Auf Tor,,,Festsetzen,0.4,,
+MS1_SVWE,High Q Chance For: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Auf Tor,Kevin Kropf,Thomas Gfeller,Auslösung,0.5,,
+MS1_SVWE,High Q Chance For: 2,Ballbesitzwechsel Nein,D3,PP1,,5:4,Direkt,Auf Tor,Matteo Steiner,"Janis Lauber, Kevin Kropf",,0.5,,
+MS1_SVWE,High Q Chance For: 3,Ballbesitzwechsel Nein,D3,PP1,,5:4,Direkt,Neben Tor,Thomas Gfeller,Janis Lauber,,0.5,,
+MS1_SVWE,Low Q Chance Against: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,Gezogen,Geblockt,Steiner Luca,,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance Against: 2,Ballbesitzwechsel Ja,D1,L2,,5:5,Gezogen,Geblockt,Luca Fankhauser,,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance Against: 3,Ballbesitzwechsel Nein,D1,L3,,5:5,Gezogen,Auf Tor,,,Festsetzen,0.2,,
+MS1_SVWE,Low Q Chance Against: 4,Ballbesitzwechsel Nein,D1,L1,,5:5,Gezogen,Auf Tor,,,Konter,0.2,,
+MS1_SVWE,Low Q Chance Against: 5,Ballbesitzwechsel Nein,D1,L1,,5:5,Handgelenk,Auf Tor,,,Standart,0.1,,
+MS1_SVWE,Low Q Chance Against: 6,Ballbesitzwechsel Ja,D1,L1,,5:5,Handgelenk,Geblockt,Gustav Svensson,,Nachsetzen,0.1,,
+MS1_SVWE,Low Q Chance Against: 7,Ballbesitzwechsel Nein,D1,BP1,,4:5,Direkt,Auf Tor,,,,0.2,,
+MS1_SVWE,Low Q Chance Against: 8,Ballbesitzwechsel Nein,D1,BP1,,4:5,Gezogen,Auf Tor,,,,0.1,,
+MS1_SVWE,Low Q Chance Against: 9,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Auf Tor,,,Festsetzen,0.2,,
+MS1_SVWE,Low Q Chance Against: 10,Ballbesitzwechsel Ja,D1,PP1,,5:4,Handgelenk,Auf Tor,,,,0.1,,
+MS1_SVWE,Low Q Chance Against: 11,Ballbesitzwechsel Ja,D2,L1,,5:5,Gezogen,Auf Tor,,,Standart,0.1,,
+MS1_SVWE,Low Q Chance Against: 12,Ballbesitzwechsel Ja,D2,L3,,5:5,Handgelenk,Auf Tor,,,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance Against: 13,Ballbesitzwechsel Nein,D2,L2,,5:5,Direkt,Geblockt,Maurice Aebersold,,Festsetzen,0.2,,
+MS1_SVWE,Low Q Chance Against: 14,Ballbesitzwechsel Nein,D2,BP1,,4:5,Gezogen,Neben Tor,,,,0.1,,
+MS1_SVWE,Low Q Chance Against: 15,Ballbesitzwechsel Nein,D2,L1,,5:5,Direkt,Geblockt,Gustav Svensson,,Auslösung,0.2,,
+MS1_SVWE,Low Q Chance Against: 16,Ballbesitzwechsel Nein,D3,BP1,,4:5,Direkt,Neben Tor,,,,0.1,,
+MS1_SVWE,Low Q Chance Against: 17,Ballbesitzwechsel Nein,D3,L2,,5:5,Gezogen,Auf Tor,,,Nachsetzen,0.1,,
+MS1_SVWE,Low Q Chance Against: 18,Ballbesitzwechsel Ja,D3,L2,,5:5,Handgelenk,Auf Tor,,,Konter,0.1,,
+MS1_SVWE,Low Q Chance Against: 19,Ballbesitzwechsel Nein,D3,L3,,5:5,Gezogen,Neben Tor,,,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance Against: 20,Ballbesitzwechsel Nein,D3,L1,,5:5,Gezogen,Geblockt,Thomas Gfeller,,Konter,0.2,,
+MS1_SVWE,Low Q Chance Against: 21,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Geblockt,Maurice Aebersold,,Festsetzen,0.1,,
+MS1_SVWE,Low Q Chance Against: 22,Ballbesitzwechsel Nein,D3,PP1,,5:4,Gezogen,Neben Tor,,,,0.1,,
+MS1_SVWE,Low Q Chance For: 1,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Neben Tor,Luca Fankhauser,Nick Pfister,Festsetzen,0.1,,
+MS1_SVWE,Low Q Chance For: 2,Ballbesitzwechsel Nein,D1,L1,,5:5,Gezogen,Geblockt,Steiner Simon,Thomas Gfeller,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance For: 3,Ballbesitzwechsel Ja,D1,L1,,5:5,Gezogen,Auf Tor,Steiner Luca,,Festsetzen,0.2,,
+MS1_SVWE,Low Q Chance For: 4,Ballbesitzwechsel Ja,D1,L3,,5:5,Handgelenk,Geblockt,Matteo Steiner,,Nachsetzen,0.1,,
+MS1_SVWE,Low Q Chance For: 5,Ballbesitzwechsel Nein,D1,L1,,5:5,Gezogen,Geblockt,Thomas Gfeller,Gustav Svensson,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance For: 6,Ballbesitzwechsel Nein,D1,L3,,5:5,Handgelenk,Neben Tor,Gian Mühlemann,Schwarz Janis,Zone-Exits,0.2,,
+MS1_SVWE,Low Q Chance For: 7,Ballbesitzwechsel Nein,D1,PP1,,5:4,Direkt,Neben Tor,Kevin Kropf,Janis Lauber,,0.2,,
+MS1_SVWE,Low Q Chance For: 8,Ballbesitzwechsel Ja,D2,L1,,5:5,Gezogen,Neben Tor,Steiner Simon,Thomas Gfeller,Standart,0.2,,
+MS1_SVWE,Low Q Chance For: 9,Ballbesitzwechsel Ja,D2,L1,,5:5,Gezogen,Geblockt,Gustav Svensson,Steiner Simon,Festsetzen,0.2,,
+MS1_SVWE,Low Q Chance For: 10,Ballbesitzwechsel Nein,D2,L2,,5:5,Gezogen,Geblockt,Luca Fankhauser,Maurice Aebersold,Standart,0.1,,
+MS1_SVWE,Low Q Chance For: 11,Ballbesitzwechsel Ja,D2,L2,,5:5,Gezogen,Neben Tor,Nick Pfister,Luca Fankhauser,Auslösung,0.2,,
+MS1_SVWE,Low Q Chance For: 12,Ballbesitzwechsel Nein,D2,L1,,5:5,Direkt,Auf Tor,Steiner Simon,Gustav Svensson,Auslösung,0.2,,
+MS1_SVWE,Low Q Chance For: 13,Ballbesitzwechsel Ja,D2,PP1,,5:4,Direkt,Neben Tor,Daniel Hernandez,Janis Lauber,,0.1,,
+MS1_SVWE,Low Q Chance For: 14,Ballbesitzwechsel Nein,D2,PP1,,5:4,Gezogen,Neben Tor,Kevin Kropf,Matteo Steiner,,0.2,,
+MS1_SVWE,Low Q Chance For: 15,Ballbesitzwechsel Nein,D3,PP1,,5:4,Gezogen,Geblockt,Daniel Hernandez,Janis Lauber,,0.1,,
+MS1_SVWE,Low Q Chance For: 16,Ballbesitzwechsel Nein,D3,PP1,,5:4,Handgelenk,Auf Tor,Kevin Kropf,,,0.1,,
+MS1_SVWE,Low Q Chance For: 17,Ballbesitzwechsel Nein,D3,PP1,,5:4,Direkt,Neben Tor,Thomas Gfeller,Matteo Steiner,,0.1,,
+MS1_SVWE,Low Q Chance For: 18,Ballbesitzwechsel Nein,D3,PP1,,5:4,Volley,Neben Tor,Thomas Gfeller,Kevin Kropf,,0.2,,
+MS1_SVWE,Low Q Chance For: 19,Ballbesitzwechsel Ja,D3,L1,,5:5,Gezogen,Geblockt,Steiner Simon,Steiner Luca,Standart,0.1,,
+MS1_SVWE,Low Q Chance For: 20,Ballbesitzwechsel Ja,D3,L2,,5:5,Gezogen,Neben Tor,Janis Lauber,Nick Pfister,Konter,0.2,,
+MS1_SVWE,Low Q Chance For: 21,Ballbesitzwechsel Nein,D3,L3,,5:5,Gezogen,Neben Tor,Matteo Steiner,Lukas Münger,Festsetzen,0.2,,
+MS1_SVWE,Low Q Chance For: 22,Ballbesitzwechsel Ja,D3,L1,,5:5,Gezogen,Auf Tor,Thomas Gfeller,,Konter,0.2,,
+MS1_SVWE,Low Q Chance For: 23,Ballbesitzwechsel Ja,D3,L1,,5:5,Gezogen,Neben Tor,Kevin Kropf,Steiner Simon,Auslösung,0.1,,
+MS1_SVWE,Low Q Chance For: 24,Ballbesitzwechsel Nein,D3,L2,,5:5,Gezogen,Geblockt,Nick Pfister,Matteo Steiner,Nachsetzen,0.2,,
+MS1_SVWE,Low Q Chance For: 25,Ballbesitzwechsel Ja,D3,L2,,5:5,Gezogen,Neben Tor,Janis Lauber,Nick Pfister,Standart,0.2,,
+MS1_SVWE,Mid Q Chance Against: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Geblockt,Nick Pfister,,Festsetzen,0.4,,
+MS1_SVWE,Mid Q Chance Against: 2,Ballbesitzwechsel Nein,D2,BP1,,4:5,Gezogen,Auf Tor,,,,0.3,,
+MS1_SVWE,Mid Q Chance Against: 3,Ballbesitzwechsel Nein,D3,BP1,,4:5,Direkt,Neben Tor,,,,0.3,,
+MS1_SVWE,Mid Q Chance For: 1,Ballbesitzwechsel Nein,D2,L1,,5:5,Gezogen,Geblockt,Steiner Simon,Gustav Svensson,Auslösung,0.3,,
+MS1_SVWE,Mid Q Chance For: 2,Ballbesitzwechsel Nein,D2,L2,,5:5,Direkt,Neben Tor,Daniel Hernandez,Janis Lauber,Auslösung,0.4,,
+MS1_SVWE,Mid Q Chance For: 3,Ballbesitzwechsel Nein,D3,L1,,5:5,Direkt,Auf Tor,Kevin Kropf,,Nachsetzen,0.3,,
+MS1_SVWE,Mid Q Chance For: 4,Ballbesitzwechsel Nein,D3,PP1,,5:4,Direkt,Geblockt,Thomas Gfeller,Steiner Simon,,0.3,,
+MS1_SVWE,Mid Q Chance For: 5,Ballbesitzwechsel Nein,D3,L2,,5:5,Handgelenk,Auf Tor,Matteo Steiner,Janis Lauber,Konter,0.4,,
+MS1_SVWE,Nachsetzen Tigers: 1,Ballbesitzwechsel Nein,D1,L1,Bad,5:5,,,Kevin Kropf,Thomas Gfeller,Nachsetzen,,,
+MS1_SVWE,Nachsetzen Tigers: 2,Ballbesitzwechsel Ja,D1,L3,Good,5:5,,,Matteo Steiner,Christian Stucki,Nachsetzen,,,
+MS1_SVWE,Nachsetzen Tigers: 3,Ballbesitzwechsel Ja,D2,L1,Good,5:5,,,Steiner Luca,Thomas Gfeller,Nachsetzen,,,
+MS1_SVWE,Tor Gegner: 1,,D1,L2,,5:5,Gezogen,,,,Auslösung,0.1,,
+MS1_SVWE,Tor Gegner: 2,,D1,L1,,5:5,Direkt,,,,Penalty,0.4,,
+MS1_SVWE,Tor Gegner: 3,,D2,L3,,5:5,Direkt,,,,Pressing,0.3,,
+MS1_SVWE,Tor Gegner: 4,,D3,L3,,5:5,Gezogen,,,,Konter,0.2,,
+MS1_SVWE,Tor Gegner: 5,,D3,L1,,5:6,Direkt,,,,,0.4,,
+MS1_SVWE,Tor Tigers: 1,,D1,PP1,,5:4,Direkt,,Daniel Hernandez,,,0.5,,
+MS1_SVWE,Tor Tigers: 2,,D1,L2,,5:5,Gezogen,,Nick Pfister,,Konter,0.2,,
+MS1_SVWE,Tor Tigers: 3,,D2,BP1,,4:5,Gezogen,,Christian Stucki,Steiner Simon,,0.2,,
+MS1_SVWE,Tor Tigers: 4,,D2,L2,,5:5,Direkt,,Luca Fankhauser,Nick Pfister,Auslösung,0.4,,
+MS1_SVWE,Tor Tigers: 5,,D3,PP1,,5:4,Gezogen,,Matteo Steiner,Janis Lauber,,0.3,,
+MS1_SVWE,Tor Tigers: 6,,D3,L3,,5:5,Handgelenk,,Matteo Steiner,,Konter,0.4,,
+MS1_SVWE,ZOE For: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,,,Gustav Svensson,Steiner Simon,Auslösung,,Good,
+MS1_SVWE,ZOE For: 2,Ballbesitzwechsel Ja,D1,L3,,5:5,,,Lukas Münger,Schwarz Janis,Auslösung,,Good,
+MS1_SVWE,ZOE For: 3,Ballbesitzwechsel Nein,D1,L1,,5:5,,,Gustav Svensson,Steiner Simon,Auslösung,,Bad,
+MS1_SVWE,ZOE For: 4,Ballbesitzwechsel Nein,D1,L1,,5:5,,,Steiner Luca,Thomas Gfeller,Auslösung,,Good,
+MS1_SVWE,ZOE For: 5,Ballbesitzwechsel Ja,D1,L1,,5:5,,,Steiner Luca,,Auslösung,,Bad,
+MS1_SVWE,ZOE For: 6,Ballbesitzwechsel Nein,D1,L2,,5:5,,,Luca Fankhauser,Janis Lauber,Auslösung,,Good,
+MS1_SVWE,ZOE For: 7,Ballbesitzwechsel Ja,D1,L2,,5:5,,,Maurice Aebersold,Luca Fankhauser,Auslösung,,Bad,
+MS1_SVWE,ZOE For: 8,Ballbesitzwechsel Nein,D1,L3,,5:5,,,Schwarz Janis,Gian Mühlemann,Auslösung,,Good,
+MS1_SVWE,ZOE For: 9,Ballbesitzwechsel Nein,D1,L1,,5:5,,,Gustav Svensson,Thomas Gfeller,Auslösung,,Good,
+MS1_SVWE,ZOE For: 10,Ballbesitzwechsel Nein,D1,L3,,5:5,,,Schwarz Janis,Gian Mühlemann,Auslösung,,Bad,
+MS1_SVWE,ZOE For: 11,Ballbesitzwechsel Ja,D1,L1,,5:5,,,Gustav Svensson,,Auslösung,,Good,
+MS1_SVWE,ZOE For: 12,Ballbesitzwechsel Ja,D2,L2,,5:5,,,Maurice Aebersold,,Auslösung,,Bad,
+MS1_SVWE,ZOE For: 13,Ballbesitzwechsel Nein,D1,L2,,5:5,,,Janis Lauber,Nick Pfister,Auslösung,,Good,
+MS1_SVWE,ZOE For: 14,Ballbesitzwechsel Ja,D2,L2,,5:5,,,Luca Fankhauser,,Auslösung,,Bad,
+MS1_SVWE,ZOE For: 15,Ballbesitzwechsel Nein,D3,L2,,5:5,,,Janis Lauber,Maurice Aebersold,Auslösung,,Good,
+MS1_SVWE,ZOE Gegner: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 2,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 3,Ballbesitzwechsel Ja,D1,L3,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 4,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 5,Ballbesitzwechsel Ja,D1,L3,,5:5,,,,,Auslösung,,,Bad
+MS1_SVWE,ZOE Gegner: 6,Ballbesitzwechsel Ja,D1,L3,,5:5,,,,,Auslösung,,,Bad
+MS1_SVWE,ZOE Gegner: 7,Ballbesitzwechsel Nein,D1,L3,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 8,Ballbesitzwechsel Ja,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 9,Ballbesitzwechsel Nein,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 10,Ballbesitzwechsel Nein,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 11,Ballbesitzwechsel Nein,D2,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 12,Ballbesitzwechsel Nein,D2,L2,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 13,Ballbesitzwechsel Nein,D2,L3,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 14,Ballbesitzwechsel Nein,D2,L2,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 15,Ballbesitzwechsel Ja,D2,L3,,5:5,,,,,Auslösung,,,Bad
+MS1_SVWE,ZOE Gegner: 16,Ballbesitzwechsel Ja,D2,L2,,5:5,,,,,Auslösung,,,Bad
+MS1_SVWE,ZOE Gegner: 17,Ballbesitzwechsel Nein,D2,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 18,Ballbesitzwechsel Ja,D3,L1,,5:5,,,,,Auslösung,,,Bad
+MS1_SVWE,ZOE Gegner: 19,Ballbesitzwechsel Nein,D3,L3,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 20,Ballbesitzwechsel Nein,D3,L2,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 21,Ballbesitzwechsel Nein,D3,L1,,5:5,,,,,Auslösung,,,Good
+MS1_SVWE,ZOE Gegner: 22,Ballbesitzwechsel Ja,D3,L1,,5:5,,,,,Auslösung,,,Bad
+MS1_SVWE,Zone-Exits: 1,Ballbesitzwechsel Nein,D1,L2,,5:5,,,Luca Fankhauser,Janis Lauber,Zone-Exits,,Good,
+MS1_SVWE,Zone-Exits: 2,Ballbesitzwechsel Ja,D1,L3,,5:5,,,Christian Stucki,,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 3,Ballbesitzwechsel Ja,D1,L3,,5:5,,,Lukas Münger,Schwarz Janis,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 4,Ballbesitzwechsel Ja,D1,L2,,5:5,,,Maurice Aebersold,,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 5,Ballbesitzwechsel Nein,D1,L3,,5:5,,,Schwarz Janis,Schwarz Janis,Zone-Exits,,Good,
+MS1_SVWE,Zone-Exits: 6,Ballbesitzwechsel Ja,D2,L2,,5:5,,,Schwarz Janis,Lukas Münger,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 7,Ballbesitzwechsel Ja,D2,L2,,5:5,,,Janis Lauber,Maurice Aebersold,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 8,Ballbesitzwechsel Ja,D3,L3,,5:5,,,Christian Stucki,Schwarz Janis,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 9,Ballbesitzwechsel Nein,D3,L3,,5:5,,,Lukas Münger,Gian Mühlemann,Zone-Exits,,Good,
+MS1_SVWE,Zone-Exits: 10,Ballbesitzwechsel Ja,D3,L1,,5:5,,,Steiner Luca,Kevin Kropf,Zone-Exits,,Bad,
+MS1_SVWE,Zone-Exits: 11,Ballbesitzwechsel Ja,D3,L1,,5:5,,,Gustav Svensson,Steiner Luca,Zone-Exits,,Bad,
