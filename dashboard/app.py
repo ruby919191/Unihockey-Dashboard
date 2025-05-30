@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import sys
 from PIL import Image
+import base64
 
 # 📦 Projektpfad ergänzen
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -53,20 +54,49 @@ from src.analysis.goals import (
     get_opponent_goal_situation_counts
 )
 
+
+
 # 🗺️ Shotmaps Helper
+
 def show_shotmaps(game_id: str, saison: str):
-    shotmap_dir = os.path.join("assets", "shotmaps", saison)
-    labels = ["Chances_For", "Chances_Against", "Tore_For", "Tore_Against"]
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    shotmap_dir = os.path.join(base_path, "assets", "shotmaps", saison)
+
     st.subheader("📊 Shotmaps")
+    if not os.path.exists(shotmap_dir):
+        st.error(f"Verzeichnis existiert nicht: {shotmap_dir}")
+        return
+
+    labels = ["Chances_For", "Chances_Against", "Tore_For", "Tore_Against"]
     cols = st.columns(2)
+
+    vorhandene_dateien = os.listdir(shotmap_dir)
+    st.info(f"Dateien in {shotmap_dir}: {vorhandene_dateien}")
+
+    images_found = False
+
     for i, label in enumerate(labels):
-        pattern_prefix = f"{game_id}_vs_"
-        pattern_suffix = f"_{label}.jpg"
-        for file in os.listdir(shotmap_dir):
-            if file.startswith(pattern_prefix) and file.endswith(pattern_suffix):
-                image_path = os.path.join(shotmap_dir, file)
+        matched_files = [
+            file for file in vorhandene_dateien
+            if file.startswith(game_id) and label.lower() in file.lower()
+        ]
+
+        if matched_files:
+            image_path = os.path.join(shotmap_dir, matched_files[0])
+            try:
                 image = Image.open(image_path)
                 cols[i % 2].image(image, caption=label.replace("_", " "), use_column_width=True)
+                images_found = True
+            except Exception as e:
+                cols[i % 2].error(f"Fehler beim Öffnen von {matched_files[0]}: {e}")
+        else:
+            cols[i % 2].warning(f"Keine Datei für {label} gefunden.")
+
+    if not images_found:
+        st.info("Keine Shotmap-Bilder gefunden. Prüfe Dateinamen und Datum.")
+
+
+
 
 # =============================
 # Streamlit Setup
@@ -133,27 +163,26 @@ with tabs[3]:
     st.subheader("🔴 Gegentore (5:5, taktisch)")
     st.dataframe(get_opponent_goal_situation_counts(df), use_container_width=True)
 
-    # 📊 Save % Analyse
-    st.subheader("🧤 Save % Übersicht")
+    st.subheader("🧤 Save Percentage")
     save_df = calculate_save_percentages(df)
     st.dataframe(save_df, use_container_width=True)
 
-    # 🔍 Dynamischer Goalie-Vergleich
-    if "Save % For" in save_df.columns and "Save % Against" in save_df.columns:
-        sp_for = save_df["Save % For"].mean()
-        sp_against = save_df["Save % Against"].mean()
+    if not save_df.empty and "Save % For" in save_df.columns and "Save % Against" in save_df.columns:
+        last_game = save_df.iloc[-1]
+        tigers_sv = last_game.get("Save % For", None)
+        opp_sv = last_game.get("Save % Against", None)
 
-        if pd.notnull(sp_for) and pd.notnull(sp_against):
-            if sp_for > sp_against:
-                verdict = "✅ Tigers Goalie war besser."
-            elif sp_for < sp_against:
-                verdict = "❌ Gegnerischer Goalie war besser."
+        if tigers_sv is not None and opp_sv is not None:
+            if tigers_sv > opp_sv:
+                st.success(f"🟢 Tigers Goalie war stärker: {tigers_sv}% vs. {opp_sv}%")
+            elif tigers_sv < opp_sv:
+                st.error(f"🔴 Gegnerischer Goalie war stärker: {opp_sv}% vs. {tigers_sv}%")
             else:
-                verdict = "🤝 Beide Goalies gleich gut."
-
-            st.success(f"Torhütervergleich: {verdict}")
+                st.info(f"⚖️ Gleichstand: Beide Save % bei {tigers_sv}%")
         else:
-            st.info("Nicht genügend Daten für Torhütervergleich.")
+            st.warning("Nicht genügend Daten zur Save %-Analyse.")
+    else:
+        st.warning("Keine Save %-Daten verfügbar.")
 
 # Zone Entries
 with tabs[4]:
@@ -200,3 +229,4 @@ with tabs[6]:
         show_shotmaps(selected_game, selected_season)
     else:
         st.warning("Bitte ein einzelnes Spiel auswählen, um Shotmaps zu sehen.")
+
