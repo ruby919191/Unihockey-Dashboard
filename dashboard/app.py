@@ -71,9 +71,7 @@ def show_shotmaps(game_id: str, saison: str):
 
     st.subheader("📊 Shotmaps")
 
-    # 🧪 Debug (entfernbar für Deployment)
-    st.write("📁 Projektpfad:", base_path)
-    st.write("📂 Erwarteter Shotmap-Pfad:", shotmap_dir)
+
 
     if not os.path.exists(shotmap_dir):
         st.error(f"❌ Verzeichnis existiert nicht: {shotmap_dir}")
