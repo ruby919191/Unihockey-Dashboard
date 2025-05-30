@@ -62,16 +62,12 @@ from src.analysis.goals import (
 import os
 import streamlit as st
 from PIL import Image
-
 def show_shotmaps(game_id: str, saison: str):
-    # 📍 Absoluter Pfad zur Projektwurzel – stabil auf Streamlit Cloud
-    base_path = os.path.dirname(os.path.abspath(__file__))        # z. B. dashboard/app.py
-    base_path = os.path.abspath(os.path.join(base_path, ".."))    # gehe eine Ebene hoch zur Projektwurzel
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    base_path = os.path.abspath(os.path.join(base_path, ".."))
     shotmap_dir = os.path.join(base_path, "assets", "shotmaps", saison)
 
     st.subheader("📊 Shotmaps")
-
-
 
     if not os.path.exists(shotmap_dir):
         st.error(f"❌ Verzeichnis existiert nicht: {shotmap_dir}")
@@ -79,7 +75,6 @@ def show_shotmaps(game_id: str, saison: str):
 
     try:
         all_files = os.listdir(shotmap_dir)
-        st.write("📸 Dateien im Ordner:", all_files)
     except Exception as e:
         st.error(f"Fehler beim Lesen des Ordners: {e}")
         return
@@ -97,8 +92,6 @@ def show_shotmaps(game_id: str, saison: str):
             if file.startswith(pattern_prefix) and file.endswith(pattern_suffix)
         ]
 
-        st.write(f"🔍 Suche: {pattern_prefix}...{pattern_suffix} → Gefunden: {matched_files}")
-
         if matched_files:
             image_path = os.path.join(shotmap_dir, matched_files[0])
             try:
@@ -107,12 +100,9 @@ def show_shotmaps(game_id: str, saison: str):
                 images_found = True
             except Exception as e:
                 cols[i % 2].error(f"Fehler beim Laden von {matched_files[0]}: {e}")
-        else:
-            cols[i % 2].warning(f"Keine Datei für {label} gefunden.")
 
     if not images_found:
         st.info("Keine Shotmap-Bilder gefunden. Bitte Game-ID und Dateinamen prüfen.")
-
 
 
 
