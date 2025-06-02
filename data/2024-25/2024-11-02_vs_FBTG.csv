@@ -1,0 +1,127 @@
+Spiel,Action,Ballbesitzwechsel,Drittel,Linien For,Nachsetzen_Good_Bad,Nummerische Spielsituation,Schusslabels,Schussmetrik,Spieler Tigers,Spieler Tigers 2,Taktische Spielsituation,XG,ZOE_For,ZOE_Against
+MS8_FBTG,High Q Chance Against: 1,Ballbesitzwechsel Ja,D3,L2,,5:5,Direkt,Geblockt,Nick Pfister,,Konter,0.5,,
+MS8_FBTG,High Q Chance Against: 2,Ballbesitzwechsel Ja,D3,L3,,5:5,Direkt,Auf Tor,,,Konter,0.4,,
+MS8_FBTG,High Q Chance For: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Auf Tor,Kevin Kropf,,Auslösung,0.4,,
+MS8_FBTG,High Q Chance For: 2,Ballbesitzwechsel Nein,D1,L3,,5:5,Direkt,Geblockt,Christian Stucki,Gian Mühlemann,Auslösung,0.6,,
+MS8_FBTG,High Q Chance For: 3,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Geblockt,Luca Fankhauser,Daniel Hernandez,Konter,0.5,,
+MS8_FBTG,High Q Chance For: 4,Ballbesitzwechsel Ja,D3,L2,,5:5,Handgelenk,Neben Tor,Daniel Hernandez,Gian Mühlemann,Konter,0.5,,
+MS8_FBTG,High Q Chance For: 5,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Auf Tor,Luca Fankhauser,Daniel Hernandez,Auslösung,0.4,,
+MS8_FBTG,Low Q Chance Against: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Auf Tor,,,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 2,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Auf Tor,,,Auslösung,0.1,,
+MS8_FBTG,Low Q Chance Against: 3,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Geblockt,Gustav Svensson,,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance Against: 4,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Geblockt,Steiner Luca,,Standart,0.1,,
+MS8_FBTG,Low Q Chance Against: 5,Ballbesitzwechsel Ja,D1,L2,,5:5,Gezogen,Auf Tor,,,Nachsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 6,Ballbesitzwechsel Ja,D1,L1,,5:5,Gezogen,Geblockt,Gustav Svensson,,Konter,0.1,,
+MS8_FBTG,Low Q Chance Against: 7,Ballbesitzwechsel Ja,D1,L2,,5:5,Gezogen,Geblockt,Janis Lauber,,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 8,Ballbesitzwechsel Nein,D1,L1,,5:5,Direkt,Geblockt,Thomas Gfeller,,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 9,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Geblockt,Luca Fankhauser,,Konter,0.1,,
+MS8_FBTG,Low Q Chance Against: 10,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Auf Tor,,,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance Against: 11,Ballbesitzwechsel Nein,D2,L3,,5:5,Direkt,Auf Tor,,,Standart,0.2,,
+MS8_FBTG,Low Q Chance Against: 12,Ballbesitzwechsel Ja,D1,L1,,5:5,Gezogen,Geblockt,Thomas Gfeller,,Standart,0.1,,
+MS8_FBTG,Low Q Chance Against: 13,Ballbesitzwechsel Ja,D2,L1,,5:5,Direkt,Auf Tor,,,Nachsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 14,Ballbesitzwechsel Ja,D2,L1,,5:5,Gezogen,Geblockt,Gustav Svensson,,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance Against: 15,Ballbesitzwechsel Ja,"D1, D2",L1,,5:5,Gezogen,Neben Tor,,,Konter,0.2,,
+MS8_FBTG,Low Q Chance Against: 16,Ballbesitzwechsel Nein,D2,L2,,5:5,Gezogen,Neben Tor,,,Auslösung,0.1,,
+MS8_FBTG,Low Q Chance Against: 17,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Geblockt,Janis Lauber,,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 18,Ballbesitzwechsel Nein,D3,L1,,5:5,Direkt,Neben Tor,,,Konter,0.2,,
+MS8_FBTG,Low Q Chance Against: 19,Ballbesitzwechsel Ja,D3,L3,,5:5,Gezogen,Geblockt,Maurice Aebersold,,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance Against: 20,Ballbesitzwechsel Ja,D3,L2,,5:4,Volley,Neben Tor,,,Standart,0.1,,
+MS8_FBTG,Low Q Chance Against: 21,Ballbesitzwechsel Ja,D3,L1,,5:5,Direkt,Neben Tor,,,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance Against: 22,Ballbesitzwechsel Nein,D3,L3,,5:5,Gezogen,Auf Tor,,,Festsetzen,0.2,,
+MS8_FBTG,Low Q Chance Against: 23,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Geblockt,Janis Lauber,,Auslösung,0.1,,
+MS8_FBTG,Low Q Chance For: 1,Ballbesitzwechsel Nein,D1,L3,,5:5,Gezogen,Geblockt,Martin Mosimann,,Standart,0.1,,
+MS8_FBTG,Low Q Chance For: 2,Ballbesitzwechsel Ja,D1,L2,,5:5,Gezogen,Geblockt,Lukas Münger,Janis Lauber,Standart,0.2,,
+MS8_FBTG,Low Q Chance For: 3,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Geblockt,Janis Lauber,,Auslösung,0.1,,
+MS8_FBTG,Low Q Chance For: 4,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Geblockt,Nick Pfister,Lukas Münger,Festsetzen,0.2,,
+MS8_FBTG,Low Q Chance For: 5,Ballbesitzwechsel Ja,D1,L2,,5:5,Gezogen,Geblockt,Luca Fankhauser,,Standart,0.2,,
+MS8_FBTG,Low Q Chance For: 6,Ballbesitzwechsel Ja,D1,L3,,5:5,Gezogen,Geblockt,Christian Stucki,Maurice Aebersold,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance For: 7,Ballbesitzwechsel Nein,D1,L1,,5:5,Gezogen,Geblockt,Thomas Gfeller,,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance For: 8,Ballbesitzwechsel Nein,D1,L2,,5:5,Direkt,Geblockt,Janis Lauber,Daniel Hernandez,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance For: 9,Ballbesitzwechsel Nein,D1,L2,,5:5,Gezogen,Neben Tor,Nick Pfister,Daniel Hernandez,Festsetzen,0.2,,
+MS8_FBTG,Low Q Chance For: 10,Ballbesitzwechsel Nein,D2,L3,,5:5,Gezogen,Auf Tor,Christian Stucki,Matteo Steiner,Konter,0.2,,
+MS8_FBTG,Low Q Chance For: 11,Ballbesitzwechsel Nein,D2,L3,,5:5,Gezogen,Auf Tor,Matteo Steiner,,Konter,0.2,,
+MS8_FBTG,Low Q Chance For: 12,Ballbesitzwechsel Ja,D1,L1,,5:5,Gezogen,Geblockt,Thomas Gfeller,Gustav Svensson,Auslösung,0.1,,
+MS8_FBTG,Low Q Chance For: 13,Ballbesitzwechsel Nein,D2,L2,,5:5,Direkt,Geblockt,Luca Fankhauser,Daniel Hernandez,Konter,0.1,,
+MS8_FBTG,Low Q Chance For: 14,Ballbesitzwechsel Nein,D2,L2,,5:5,Gezogen,Geblockt,Luca Fankhauser,Janis Lauber,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance For: 15,Ballbesitzwechsel Nein,D1,L1,,5:5,Gezogen,Auf Tor,Kevin Kropf,,Konter,0.2,,
+MS8_FBTG,Low Q Chance For: 16,Ballbesitzwechsel Nein,D2,L1,,5:5,Gezogen,Geblockt,Kevin Kropf,Steiner Simon,Festsetzen,0.1,,
+MS8_FBTG,Low Q Chance For: 17,Ballbesitzwechsel Nein,D3,L3,,5:5,Gezogen,Geblockt,Lukas Münger,,Festsetzen,0.2,,
+MS8_FBTG,Low Q Chance For: 18,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Auf Tor,Nick Pfister,Luca Fankhauser,Auslösung,0.3,,
+MS8_FBTG,Low Q Chance For: 19,Ballbesitzwechsel Nein,D3,L3,,5:5,Gezogen,Neben Tor,Martin Mosimann,Nick Pfister,Festsetzen,0.2,,
+MS8_FBTG,Low Q Chance For: 20,Ballbesitzwechsel Nein,D3,L2,,5:5,Direkt,Geblockt,Nick Pfister,Janis Lauber,Auslösung,0.2,,
+MS8_FBTG,Low Q Chance For: 21,Ballbesitzwechsel Nein,D3,PP1,,5:4,Handgelenk,Auf Tor,Matteo Steiner,,,0.1,,
+MS8_FBTG,Low Q Chance For: 22,Ballbesitzwechsel Nein,D3,PP1,,5:4,Gezogen,Auf Tor,Janis Lauber,Matteo Steiner,,0.2,,
+MS8_FBTG,Mid Q Chance Against: 1,Ballbesitzwechsel Ja,D2,L1,,5:5,Volley,Neben Tor,,,Konter,0.3,,
+MS8_FBTG,Mid Q Chance For: 1,Ballbesitzwechsel Ja,D1,L3,,5:5,Handgelenk,Neben Tor,Matteo Steiner,Christian Stucki,Konter,0.3,,
+MS8_FBTG,Mid Q Chance For: 2,Ballbesitzwechsel Nein,D1,L2,,5:5,Direkt,Neben Tor,Luca Fankhauser,Janis Lauber,Konter,0.4,,
+MS8_FBTG,Mid Q Chance For: 3,Ballbesitzwechsel Nein,D1,L3,,5:5,Handgelenk,Geblockt,Christian Stucki,Matteo Steiner,Konter,0.3,,
+MS8_FBTG,Tor Gegner: 1,,D1,L1,,5:5,Handgelenk,,,,Standart,0.2,,
+MS8_FBTG,Tor Gegner: 2,,D1,L1,,5:5,Direkt,,,,Konter,0.5,,
+MS8_FBTG,Tor Gegner: 3,,D2,L2,,5:5,Direkt,,,,Zone-Exits,0.5,,
+MS8_FBTG,Tor Gegner: 4,,D3,BP1,,4:5,Handgelenk,,,,,0.4,,
+MS8_FBTG,Tor Gegner: 5,,D3,L2,,5:5,Handgelenk,,,,Festsetzen,0.3,,
+MS8_FBTG,Tor Gegner: 6,,D3,L1,,5:5,Direkt,,,,Pressing,0.5,,
+MS8_FBTG,Tor Gegner: 7,,D3,BP2,,4:5,Direkt,,,,,0.5,,
+MS8_FBTG,Tor Gegner: 8,,D3,L1,,5:5,Direkt,,,,Festsetzen,0.4,,
+MS8_FBTG,Tor Tigers: 1,,D1,L3,,5:5,Handgelenk,,Matteo Steiner,,Auslösung,0.3,,
+MS8_FBTG,Tor Tigers: 2,,D2,L1,,5:5,Gezogen,,Steiner Simon,Kevin Kropf,Konter,0.3,,
+MS8_FBTG,Tor Tigers: 3,,D2,L2,,5:5,Direkt,,Nick Pfister,Daniel Hernandez,Konter,0.4,,
+MS8_FBTG,Tor Tigers: 4,,D2,L1,,5:5,Volley,,Steiner Simon,Steiner Luca,Auslösung,0.5,,
+MS8_FBTG,Tor Tigers: 5,,D2,L3,,5:5,Gezogen,,Christian Stucki,Matteo Steiner,Konter,0.1,,
+MS8_FBTG,Tor Tigers: 6,,D2,L3,,5:5,Direkt,,Christian Stucki,Maurice Aebersold,Auslösung,0.4,,
+MS8_FBTG,Tor Tigers: 7,,D2,L3,,5:5,Gezogen,,Matteo Steiner,Christian Stucki,Konter,0.7,,
+MS8_FBTG,Tor Tigers: 8,,D3,L1,,5:5,Direkt,,Thomas Gfeller,Steiner Simon,Nachsetzen,0.5,,
+MS8_FBTG,Tor Tigers: 9,,D3,L2,,5:5,Gezogen,,Nick Pfister,Lukas Münger,Konter,0.3,,
+MS8_FBTG,ZOE For: 1,Ballbesitzwechsel NEIN,D1,L3,,5:5,,,Maurice Aebersold,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 2,Ballbesitzwechsel NEIN,D1,L3,,5:5,,,Micha Strohl,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 3,Ballbesitzwechsel NEIN,D1,L2,,5:5,,,Maurice Aebersold,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 4,Ballbesitzwechsel NEIN,D1,L3,,5:5,,,Lucas Schlegel,,Auslösung,,Bad,
+MS8_FBTG,ZOE For: 5,Ballbesitzwechsel Nein,D1,L2,,5:5,,,Maurice Aebersold,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 6,Ballbesitzwechsel Nein,D1,L1,,5:5,,,Steiner Luca,,Auslösung,,Bad,
+MS8_FBTG,ZOE For: 7,Ballbesitzwechsel Nein,D1,L3,,5:5,,,Lucas Schlegel,,Auslösung,,Bad,
+MS8_FBTG,ZOE For: 8,Ballbesitzwechsel Nein,D1,L2,,5:5,,,Lukas Münger,Janis Lauber,Auslösung,,Good,
+MS8_FBTG,ZOE For: 9,Ballbesitzwechsel Nein,D1,L3,,5:5,,,Lucas Schlegel,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 10,Ballbesitzwechsel Nein,D2,L2,,5:5,,,Lucas Schlegel,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 11,Ballbesitzwechsel Nein,D2,L1,,5:5,,,Luca Fankhauser,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 12,Ballbesitzwechsel Nein,D2,L1,,5:5,,,Steiner Luca,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 13,Ballbesitzwechsel Nein,D2,L3,,5:5,,,Maurice Aebersold,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 14,Ballbesitzwechsel Nein,D2,L3,,5:5,,,Micha Strohl,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 15,Ballbesitzwechsel Nein,D2,L1,,5:5,,,Luca Fankhauser,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 16,Ballbesitzwechsel Nein,D2,L2,,5:5,,,Gustav Svensson,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 17,Ballbesitzwechsel Nein,D3,L3,,5:5,,,Micha Strohl,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 18,Ballbesitzwechsel Nein,D3,L1,,5:5,,,Luca Fankhauser,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 19,Ballbesitzwechsel Nein,D3,L3,,5:5,,,Micha Strohl,,Auslösung,,Bad,
+MS8_FBTG,ZOE For: 20,Ballbesitzwechsel Nein,D3,L2,,5:5,,,Gustav Svensson,,Auslösung,,Bad,
+MS8_FBTG,ZOE For: 21,Ballbesitzwechsel Nein,D3,L2,,5:5,,,Micha Strohl,,Auslösung,,Good,
+MS8_FBTG,ZOE For: 22,Ballbesitzwechsel Nein,D3,L1,,5:5,,,Steiner Luca,,Auslösung,,Good,
+MS8_FBTG,ZOE Gegner: 1,Ballbesitzwechsel Nein,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 2,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 3,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 4,Ballbesitzwechsel Nein,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 5,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 6,Ballbesitzwechsel Ja,D1,L1,,5:5,,,,,Auslösung,,,Bad
+MS8_FBTG,ZOE Gegner: 7,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Bad
+MS8_FBTG,ZOE Gegner: 8,Ballbesitzwechsel Ja,D1,L2,,5:5,,,,,Auslösung,,,Bad
+MS8_FBTG,ZOE Gegner: 9,Ballbesitzwechsel Nein,D1,L1,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 10,Ballbesitzwechsel Nein,D1,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 11,Ballbesitzwechsel Nein,D2,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 12,Ballbesitzwechsel Nein,D2,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 13,Ballbesitzwechsel Nein,D2,L1,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 14,Ballbesitzwechsel Nein,D2,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 15,Ballbesitzwechsel Nein,D2,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 16,Ballbesitzwechsel Nein,D2,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 17,Ballbesitzwechsel Ja,D2,L3,,5:5,,,,,Auslösung,,,Bad
+MS8_FBTG,ZOE Gegner: 18,Ballbesitzwechsel Nein,D2,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 19,Ballbesitzwechsel Nein,D3,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 20,Ballbesitzwechsel Nein,D1,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 21,Ballbesitzwechsel Nein,D3,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 22,Ballbesitzwechsel Nein,D3,L2,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 23,Ballbesitzwechsel Nein,D3,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 24,Ballbesitzwechsel Nein,D3,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,ZOE Gegner: 25,Ballbesitzwechsel Nein,D3,L3,,5:5,,,,,Auslösung,,,Good
+MS8_FBTG,Zone-Exits: 1,Ballbesitzwechsel Ja,D1,L2,,5:5,,,Lukas Münger,Luca Fankhauser,Zone-Exits,,Good,
+MS8_FBTG,Zone-Exits: 2,Ballbesitzwechsel Nein,D2,L1,,5:5,,,Kevin Kropf,Gustav Svensson,Zone-Exits,,Bad,
+MS8_FBTG,Zone-Exits: 3,Ballbesitzwechsel Ja,D2,L3,,5:5,,,Gian Mühlemann,Maurice Aebersold,Zone-Exits,,Bad,
+MS8_FBTG,Zone-Exits: 4,Ballbesitzwechsel Nein,D3,L3,,5:5,,,Maurice Aebersold,Martin Mosimann,Zone-Exits,,Good,
+MS8_FBTG,Zone-Exits: 5,Ballbesitzwechsel Ja,D3,L3,,5:5,,,Gian Mühlemann,Steiner Simon,Zone-Exits,,Bad,
+MS8_FBTG,Zone-Exits: 6,Ballbesitzwechsel Nein,D3,L3,,5:5,,,Maurice Aebersold,Martin Mosimann,Auslösung,,Good,
