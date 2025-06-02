@@ -72,3 +72,39 @@ def count_chances_by_tactical_situation(df):
     df = get_chances_for(df).dropna(subset=["Taktische Spielsituation"])
     result = df.groupby("Taktische Spielsituation").size().reset_index(name="Anzahl Chancen")
     return result.sort_values("Anzahl Chancen", ascending=False).reset_index(drop=True)
+
+# ✅ Erweiterung: detaillierte taktische Auswertung
+def count_chances_by_tactical_situation_detailed(df):
+    df = get_chances_for(df)
+
+    # Nur 5:5-Situationen berücksichtigen
+    if "Nummerische Spielsituation" in df.columns:
+        df = df[df["Nummerische Spielsituation"] == "5:5"]
+
+    df = df.dropna(subset=["Taktische Spielsituation"])
+
+    categories = ["Low Q", "Mid Q", "High Q", "Pot +"]
+    result = {}
+
+    for _, row in df.iterrows():
+        situation = row["Taktische Spielsituation"]
+        action = row["Action"]
+
+        if situation not in result:
+            result[situation] = {cat: 0 for cat in categories}
+
+        for cat in categories:
+            if f"{cat} Chance For" in action:
+                result[situation][cat] += 1
+
+    df_result = pd.DataFrame.from_dict(result, orient="index").fillna(0).astype(int)
+    df_result["Total"] = df_result.sum(axis=1)
+
+    total_sum = df_result["Total"].sum()
+    df_result["% vom Total"] = df_result["Total"].apply(
+        lambda x: round(x / total_sum * 100, 1) if total_sum else 0.0
+    )
+
+    df_result = df_result.sort_values("Total", ascending=False).reset_index().rename(columns={"index": "Taktische Spielsituation"})
+
+    return df_result

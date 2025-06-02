@@ -21,12 +21,14 @@ from src.analysis.gameplan_save_percentage import calculate_save_percentages
 from src.analysis.chances_for import (
     count_chances_by_quality as chances_for_quality,
     count_chances_by_line as chances_for_line,
-    count_chances_by_period as chances_for_period
+    count_chances_by_period as chances_for_period,
+    count_chances_by_tactical_situation_detailed as chances_for_tactics
 )
 from src.analysis.chances_against import (
     count_chances_by_quality as chances_against_quality,
     count_chances_by_line as chances_against_line,
-    count_chances_by_period as chances_against_period
+    count_chances_by_period as chances_against_period,
+    count_chances_by_tactical_situation_detailed as chances_against_tactics
 )
 
 # 🧍‍♂️ Spieler
@@ -35,6 +37,7 @@ from src.analysis.player_chances_by_tactics import count_player_chances_by_tacti
 from src.analysis.player_chances_by_high_mid import get_high_mid_chances_by_player
 from src.analysis.player_shot_types import get_shot_types_by_player
 from src.analysis.player_zone_entries_for import get_player_zone_entries
+from src.analysis.player_pass_data import get_player_pass_participation
 
 # 📥 Zone Entries
 from src.analysis.zone_entries_for import (
@@ -54,14 +57,11 @@ from src.analysis.goals import (
     get_opponent_goal_situation_counts
 )
 
-
-
 # 🗺️ Shotmaps Helper
-
-
 import os
 import streamlit as st
 from PIL import Image
+
 def show_shotmaps(game_id: str, saison: str):
     base_path = os.path.dirname(os.path.abspath(__file__))
     base_path = os.path.abspath(os.path.join(base_path, ".."))
@@ -103,8 +103,6 @@ def show_shotmaps(game_id: str, saison: str):
 
     if not images_found:
         st.info("Keine Shotmap-Bilder gefunden. Bitte Game-ID und Dateinamen prüfen.")
-
-
 
 # =============================
 # Streamlit Setup
@@ -162,6 +160,12 @@ with tabs[2]:
 
     st.subheader("📊 Chancen pro Drittel (Against)")
     st.dataframe(chances_against_period(df), use_container_width=True)
+
+    st.subheader("📋 Chancen For nach Taktik (5:5)")
+    st.dataframe(chances_for_tactics(df), use_container_width=True)
+
+    st.subheader("📋 Chancen Against nach Taktik (5:5)")
+    st.dataframe(chances_against_tactics(df), use_container_width=True)
 
 # Tore
 with tabs[3]:
@@ -231,10 +235,12 @@ with tabs[5]:
     st.subheader("🥍 Schusstypen pro Spieler")
     st.dataframe(get_shot_types_by_player(df), use_container_width=True)
 
+    st.subheader("🤝 Spielerbeteiligung bei Chancen")
+    st.dataframe(get_player_pass_participation(df), use_container_width=True)
+
 # Shotmaps
 with tabs[6]:
     if selected_game != "Alle Spiele":
         show_shotmaps(selected_game, selected_season)
     else:
         st.warning("Bitte ein einzelnes Spiel auswählen, um Shotmaps zu sehen.")
-
