@@ -108,3 +108,4 @@ def count_chances_by_tactical_situation_detailed(df):
     df_result = df_result.sort_values("Total", ascending=False).reset_index().rename(columns={"index": "Taktische Spielsituation"})
 
     return df_result
+

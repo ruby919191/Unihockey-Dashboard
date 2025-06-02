@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-# Basisverzeichnis definieren (z.B. /Users/du/Desktop/Unihockey-Dashboard/src → eine Ebene rauf = Hauptordner)
+# Basisverzeichnis definieren (z. B. /Users/du/Desktop/Unihockey-Dashboard/src → eine Ebene rauf = Hauptordner)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 data_folder = os.path.join(BASE_DIR, "..", "data")
 
@@ -17,7 +17,7 @@ def list_seasons():
 def get_season_games(season):
     """
     Lädt alle CSV-Dateien für die gegebene Saison.
-    Gibt einen zusammengefügten DataFrame zurück.
+    Gibt einen zusammengefügten DataFrame zurück – bereinigt Mehrfacheinträge in 'Drittel'.
     """
     season_path = os.path.join(data_folder, season)
     if not os.path.exists(season_path):
@@ -28,6 +28,11 @@ def get_season_games(season):
         if file.endswith(".csv"):
             df = pd.read_csv(os.path.join(season_path, file))
             df["game"] = os.path.splitext(file)[0]
+
+            # ✅ Drittel-Spalte bereinigen, falls vorhanden
+            if "Drittel" in df.columns:
+                df["Drittel"] = df["Drittel"].astype(str).str.split(",").str[0].str.strip()
+
             dfs.append(df)
 
     if not dfs:
