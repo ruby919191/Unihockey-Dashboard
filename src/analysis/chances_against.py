@@ -10,7 +10,9 @@ def count_chances_by_quality(df):
     for q in qualities:
         subset = df[df["Action"].str.contains(f"{q} Chance Against", na=False)]
         count = len(subset)
-        xg = subset["XG"].sum()
+
+        xg_series = pd.to_numeric(subset.get("XG", pd.Series(dtype=float)), errors="coerce")
+        xg = xg_series.sum(skipna=True)
 
         on = (subset["Schussmetrik"] == "Auf Tor").sum()
         off = (subset["Schussmetrik"] == "Neben Tor").sum()
@@ -25,7 +27,7 @@ def count_chances_by_quality(df):
     ])
 
     total = pd.DataFrame([[
-        "Total", df_summary["Anzahl"].sum(), df_summary["xG"].sum(),
+        "Total", df_summary["Anzahl"].sum(), round(df_summary["xG"].sum(), 2),
         df_summary["Auf Tor"].sum(), "", df_summary["Neben Tor"].sum(), "",
         df_summary["Geblockt"].sum(), ""
     ]], columns=df_summary.columns)
@@ -37,6 +39,8 @@ def count_chances_by_line(df):
     lines = []
 
     for line, group in df.groupby("Linien For"):
+        xg_series = pd.to_numeric(group.get("XG", pd.Series(dtype=float)), errors="coerce")
+
         data = {
             "Linie": line,
             "Low Q": group["Action"].str.contains("Low Q", na=False).sum(),
@@ -45,18 +49,24 @@ def count_chances_by_line(df):
             "Pot +": group["Action"].str.contains("Pot +", na=False).sum()
         }
         data["Total"] = sum(data[q] for q in ["Low Q", "Mid Q", "High Q", "Pot +"])
-        data["xG"] = round(group["XG"].sum(), 2)
+        data["xG"] = round(xg_series.sum(skipna=True), 2)
         data["% Auf Tor"] = round(
             (group["Schussmetrik"] == "Auf Tor").sum() / data["Total"] * 100, 1
         ) if data["Total"] else 0
         lines.append(data)
 
-    return pd.DataFrame(lines).sort_values("Total", ascending=False)
+    df_result = pd.DataFrame(lines)
+
+    if df_result.empty or "Total" not in df_result.columns:
+        return pd.DataFrame(columns=["Linie", "Low Q", "Mid Q", "High Q", "Pot +", "Total", "xG", "% Auf Tor"])
+
+    return df_result.sort_values("Total", ascending=False)
 
 def count_chances_by_period(df):
     df = get_chances_against(df).dropna(subset=["Drittel"])
     df["Drittel"] = df["Drittel"].str.upper()
 
+    df["XG"] = pd.to_numeric(df.get("XG", pd.Series(dtype=float)), errors="coerce")
     grouped = df.groupby("Drittel").agg(Anzahl=("Action", "count"), xG=("XG", "sum")).reset_index()
     grouped["xG"] = grouped["xG"].round(2)
 
@@ -80,7 +90,6 @@ def count_chances_by_tactical_situation_detailed(df):
         df = df[df["Nummerische Spielsituation"] == "5:5"]
 
     df = df.dropna(subset=["Taktische Spielsituation"])
-
     categories = ["Low Q", "Mid Q", "High Q", "Pot +"]
     result = {}
 
@@ -103,7 +112,8 @@ def count_chances_by_tactical_situation_detailed(df):
         lambda x: round(x / gesamt * 100, 1) if gesamt else 0.0
     )
 
-    df_result = df_result.sort_values("Total", ascending=False).reset_index().rename(columns={"index": "Taktische Spielsituation"})
+    df_result = df_result.sort_values("Total", ascending=False).reset_index().rename(
+        columns={"index": "Taktische Spielsituation"}
+    )
 
     return df_result
-

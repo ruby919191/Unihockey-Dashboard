@@ -12,11 +12,15 @@ def get_chances_by_player(df):
 
     for player, group in players.groupby("Spieler Tigers"):
         row = {"Spieler": player}
+
         for q in qualities:
             row[q] = group["Action"].str.contains(f"{q} Chance For", na=False).sum()
 
         row["Total"] = sum(row[q] for q in qualities)
-        row["xG"] = round(group["XG"].sum(), 2)
+
+        # ✅ Robust gegen fehlende oder nicht-numerische XG
+        xg_series = pd.to_numeric(group.get("XG", pd.Series(dtype=float)), errors="coerce")
+        row["xG"] = round(xg_series.sum(skipna=True), 2)
 
         # Schussmetrik
         for metric in ["Auf Tor", "Neben Tor", "Geblockt"]:
