@@ -1,0 +1,122 @@
+Timeline,Action,Drittel,Linien For,Nummerische Spielsituation,Schusslabels,Schussmetrik,Spieler Tigers,Spieler Tigers 2,Taktische Spielsituation,XG,ZOE_For,ZOE_Against
+MS6_Alligator_Malans_A,Bully: 1,D3,L2,5:5,,,,,,,,
+MS6_Alligator_Malans_A,Bully: 2,,,,,,,,,,,
+MS6_Alligator_Malans_A,Bully: 3,,,,,,Elias Lunnestad,,,,,
+MS6_Alligator_Malans_A,ZOE For: 1,D3,L1,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 2,D3,L1,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 3,D3,L2,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 4,D3,L1,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 5,D3,L3,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 6,D3,L1,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 7,D1,L2,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 8,D1,L2,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 9,D1,L2,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 10,D1,L1,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 11,D1,L3,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 12,D1,L1,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 13,D1,L3,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,ZOE For: 14,D2,L1,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 15,D2,L3,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 16,D2,L3,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 17,D2,L2,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,ZOE For: 18,D2,L1,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Nachsetzen Tigers: 1,D3,L1,5:5,,,,,Nachsetzen,,,
+MS6_Alligator_Malans_A,Low Q Chance For: 1,D3,L1,5:5,Gezogen,Auf Tor,Janis Schwarz,Steiner Simon,Festsetzen,0.2,,
+MS6_Alligator_Malans_A,Low Q Chance For: 2,D3,L3,5:5,Handgelenk,Neben Tor,Hannes Kjellberg,,Konter,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 3,D3,L3,5:5,Handgelenk,Auf Tor,Hannes Kjellberg,,Konter,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 4,D3,L3,5:5,Handgelenk,Geblockt,Hannes Kjellberg,,Konter,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 5,D3,L2,5:5,Gezogen,Auf Tor,Matteo Steiner,,Festsetzen,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 6,D3,L1,5:5,Direkt,Geblockt,Kevin Kropf,Steiner Simon,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 7,D3,L3,5:5,Gezogen,Auf Tor,Jan Ewald,Hannes Kjellberg,Nachsetzen,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 8,D3,L2,5:5,Gezogen,Geblockt,Matteo Steiner,Nick Pfister,Festsetzen,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 9,D3,L2,5:5,Gezogen,Geblockt,Matteo Steiner,,Standart,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 10,D1,L2,5:5,Handgelenk,Auf Tor,Luca Fankhauser,Matteo Steiner,Auslösung,0.2,,
+MS6_Alligator_Malans_A,Low Q Chance For: 11,D1,L1,5:5,Handgelenk,Neben Tor,Simon Steiner,,Konter,0.2,,
+MS6_Alligator_Malans_A,Low Q Chance For: 12,D1,L3,5:5,Gezogen,Auf Tor,Hannes Kjellberg,,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 13,D1,L1,5:5,Direkt,Neben Tor,Christian Stucki,Kevin Kropf,Festsetzen,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 14,D1,L3,5:5,Gezogen,Auf Tor,Jan Ewald,,Standart,0.2,,
+MS6_Alligator_Malans_A,Low Q Chance For: 15,D2,L2,5:5,Handgelenk,Geblockt,"Luca Steiner, Lukas Münger",Lukas Münger,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 16,D2,L2,5:5,Gezogen,Geblockt,Luca Fankhauser,,Standart,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance For: 17,D2,L3,5:5,Gezogen,Auf Tor,Jan Ewald,,Auslösung,0.2,,
+MS6_Alligator_Malans_A,ZOE Gegner: 1,D3,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 2,D3,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 3,D3,L2,5:5,,,,,Auslösung,,,Bad
+MS6_Alligator_Malans_A,ZOE Gegner: 4,D3,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 5,D3,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 6,D3,L3,5:5,,,,,Auslösung,,,Bad
+MS6_Alligator_Malans_A,ZOE Gegner: 7,D3,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 8,D1,L1,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 9,D1,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 10,D1,L1,5:5,,,,,Auslösung,,,Bad
+MS6_Alligator_Malans_A,ZOE Gegner: 11,D1,L1,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 12,D1,L1,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 13,D1,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 14,D1,L2,5:5,,,,,Auslösung,,,Bad
+MS6_Alligator_Malans_A,ZOE Gegner: 15,D1,L1,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 16,D1,L3,5:5,,,,,Auslösung,,,Bad
+MS6_Alligator_Malans_A,ZOE Gegner: 17,D1,L2,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 18,D2,L1,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 19,D2,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 20,D2,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 21,D2,L2,5:5,,,,,Auslösung,,,Bad
+MS6_Alligator_Malans_A,ZOE Gegner: 22,D2,L1,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,ZOE Gegner: 23,D2,L3,5:5,,,,,Auslösung,,,Good
+MS6_Alligator_Malans_A,Divers: 1,D3,L2,5:5,,,Matteo Steiner,,,,,
+MS6_Alligator_Malans_A,Divers: 2,D3,L3,5:5,,,Jan Ewald,,Auslösung,,,
+MS6_Alligator_Malans_A,Divers: 3,D3,L3,5:5,,,Luca Steiner,,Auslösung,,,
+MS6_Alligator_Malans_A,Divers: 4,D3,L3,5:5,,,Lukas Münger,,,,,
+MS6_Alligator_Malans_A,Divers: 5,D3,L1,5:5,,,,,Festsetzen,,,
+MS6_Alligator_Malans_A,Divers: 6,D3,L2,5:5,,,Matteo Steiner,,,,,
+MS6_Alligator_Malans_A,Divers: 7,D1,L2,5:5,,,Nick Pfister,,Auslösung,,,
+MS6_Alligator_Malans_A,Divers: 8,D1,L2,5:5,,,Janis Schwarz,,,,,
+MS6_Alligator_Malans_A,Divers: 9,D1,L1,5:5,,,Janis Schwarz,,,,,
+MS6_Alligator_Malans_A,Divers: 10,D1,L1,5:5,,,,,Standart,,,
+MS6_Alligator_Malans_A,Divers: 11,D1,L3,5:5,,,Hannes Kjellberg,,Auslösung,,,
+MS6_Alligator_Malans_A,Divers: 12,D1,L3,5:5,,,Nick Pfister,,,,,
+MS6_Alligator_Malans_A,Divers: 13,D1,L1,5:5,,,Simon Steiner,,,,,
+MS6_Alligator_Malans_A,Divers: 14,D2,L3,5:5,,,Jan Ewald,,Festsetzen,,,
+MS6_Alligator_Malans_A,Divers: 15,D2,L1,5:5,,,Kevin Kropf,,,,,
+MS6_Alligator_Malans_A,Mid Q Chance For: 1,D3,L2,5:5,Gezogen,Auf Tor,Nick Pfister,Matteo Steiner,Konter,0.3,,
+MS6_Alligator_Malans_A,Mid Q Chance For: 2,D2,L1,5:5,Gezogen,Neben Tor,Simon Steiner,Gustav Svensson,Auslösung,0.3,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 1,D3,L1,5:5,Volley,Neben Tor,,,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 2,D3,L3,5:5,Handgelenk,Auf Tor,,,Festsetzen,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 3,D3,L2,5:5,Direkt,Auf Tor,,,Festsetzen,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 4,D3,L1,5:5,Handgelenk,Auf Tor,,,Festsetzen,0.2,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 5,D1,L1,5:5,Volley,Neben Tor,,,Festsetzen,0.2,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 6,D1,L1,5:5,Direkt,Geblockt,Steiner Simon,,Standart,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 7,D1,L1,5:5,Gezogen,Geblockt,Christian Stucki,,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 8,D1,L2,5:5,Gezogen,Geblockt,Luca Fankhauser,,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 9,D1,L1,5:5,Gezogen,Auf Tor,,,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 10,D2,L2,5:5,Handgelenk,Geblockt,Björn Schenkel,,Konter,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 11,D2,L3,5:5,Gezogen,Geblockt,Lukas Münger,,Auslösung,0.1,,
+MS6_Alligator_Malans_A,Low Q Chance Against: 12,D2,L2,5:5,Direkt,Geblockt,Luca Fankhauser,,Standart,0.2,,
+MS6_Alligator_Malans_A,Zone-Exits: 1,D3,L2,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 2,D3,L2,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,Zone-Exits: 3,D3,L1,5:5,,,Gustav Svensson,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,Zone-Exits: 4,D3,L2,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 5,D1,L3,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 6,D1,L1,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 7,D1,L2,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,Zone-Exits: 8,D1,L1,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 9,D2,L2,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 10,D2,L1,5:5,,,,,Auslösung,,Good,
+MS6_Alligator_Malans_A,Zone-Exits: 11,D2,L2,5:5,,,,,Auslösung,,Bad,
+MS6_Alligator_Malans_A,Mid Q Chance Against: 1,D3,L1,5:5,Direkt,Auf Tor,,,Konter,0.3,,
+MS6_Alligator_Malans_A,Mid Q Chance Against: 2,D3,L3,5:5,Direkt,Auf Tor,,,Nachsetzen,0.3,,
+MS6_Alligator_Malans_A,Mid Q Chance Against: 3,D1,L1,5:5,Direkt,Neben Tor,,,Nachsetzen,0.2,,
+MS6_Alligator_Malans_A,High Q Chance Against: 1,D3,L2,5:5,Direkt,Neben Tor,,,Auslösung,0.4,,
+MS6_Alligator_Malans_A,High Q Chance Against: 2,D3,L1,5:5,Handgelenk,Auf Tor,,,Pressing,0.5,,
+MS6_Alligator_Malans_A,High Q Chance Against: 3,D2,L2,5:5,Direkt,Auf Tor,,,Standart,0.5,,
+MS6_Alligator_Malans_A,Tor Tigers: 1,D3,PP2,5:4,Gezogen,,Matteo Steiner,Janis Lauber,,0.2,,
+MS6_Alligator_Malans_A,Tor Tigers: 2,D3,L1,5:5,Direkt,,Simon Steiner,Christian Stucki,Nachsetzen,0.4,,
+MS6_Alligator_Malans_A,Tor Tigers: 3,D1,L3,5:5,Gezogen,,Jan Ewald,Lukas Münger,Auslösung,0.2,,
+MS6_Alligator_Malans_A,Tor Tigers: 4,D1,L2,5:5,Handgelenk,,Janis Lauber,,Konter,0.4,,
+MS6_Alligator_Malans_A,Tor Tigers: 5,D2,L1,5:5,Handgelenk,,Simon Steiner,Kevin Kropf,Auslösung,0.8,,
+MS6_Alligator_Malans_A,Tor Tigers: 6,D2,PP1,5:4,Gezogen,,Janis Lauber,Elias Lunnestad,,0.2,,
+MS6_Alligator_Malans_A,Tor Tigers: 7,D2,L2,5:5,Direkt,,Matteo Steiner,Janis Lauber,Auslösung,0.5,,
+MS6_Alligator_Malans_A,High Q Chance For: 1,D3,L2,5:5,Volley,,Nick Pfister,Luca Fankhauser,Auslösung,0.4,,
+MS6_Alligator_Malans_A,High Q Chance For: 2,D1,L2,5:5,Direkt,Neben Tor,Matteo Steiner,Nick Pfister,Konter,0.4,,
+MS6_Alligator_Malans_A,Tor Gegner: 1,D1,BP2,4:5,Gezogen,,,,,0.3,,
+MS6_Alligator_Malans_A,Tor Gegner: 2,D1,L3,5:5,Direkt,,,,Standart,0.1,,
+MS6_Alligator_Malans_A,Tor Gegner: 3,D2,BP1,4:5,Direkt,,,,,0.3,,
+MS6_Alligator_Malans_A,Tor Gegner: 4,D2,L2,5:5,Volley,,,,Standart,0.5,,
