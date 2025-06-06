@@ -1,13 +1,17 @@
 import os
+import re
 import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 data_folder = os.path.join(BASE_DIR, "..", "data")
 
+columns_to_clean = [
+    "Spieler Tigers", "Spieler Tigers 2", "Taktische Spielsituation",
+    "Nummerische Spielsituation", "XG", "ZOE For", "ZOE Against",
+    "Drittel", "Linien For", "Linien Against"
+]
+
 def clean_first_value(df, columns):
-    """
-    Für jede Spalte in `columns` wird nur der erste Wert vor einem Komma behalten.
-    """
     for col in columns:
         if col in df.columns:
             df[col] = (
@@ -16,21 +20,15 @@ def clean_first_value(df, columns):
                 .str.split(",")
                 .str[0]
                 .str.strip()
-                .replace("nan", pd.NA)  # ersetzt nur string "nan"
+                .replace("nan", pd.NA)
             )
     return df
 
 def standardize_columns(df):
-    """
-    Entfernt Leerzeichen & vereinheitlicht Spaltennamen.
-    """
     df.columns = df.columns.str.strip()
     return df
 
 def safe_read_csv(path):
-    """
-    Liest CSV-Datei ein, fängt Fehler ab, gibt leeres DF bei Problemen.
-    """
     try:
         return pd.read_csv(path)
     except Exception as e:
@@ -43,33 +41,41 @@ def list_seasons():
         if os.path.isdir(os.path.join(data_folder, folder))
     ])
 
-def get_season_games(season):
-    season_path = os.path.join(data_folder, season)
-    if not os.path.exists(season_path):
-        raise FileNotFoundError(f"Saisonordner nicht gefunden: {season_path}")
+def get_all_games():
+    all_data = []
+    for season in list_seasons():
+        season_path = os.path.join(data_folder, season)
+        for root, _, files in os.walk(season_path):
+            for file in files:
+                if file.endswith(".csv"):
+                    path = os.path.join(root, file)
+                    df = safe_read_csv(path)
+                    if df.empty:
+                        continue
 
-    dfs = []
-    for file in os.listdir(season_path):
-        if file.endswith(".csv"):
-            path = os.path.join(season_path, file)
-            df = safe_read_csv(path)
-            if df.empty:
-                continue
+                    df = standardize_columns(df)
+                    df["game"] = os.path.splitext(file)[0]
+                    df["season"] = season.strip()
 
-            df = standardize_columns(df)
-            df["game"] = os.path.splitext(file)[0]
+                    rel_path = os.path.relpath(root, season_path)
+                    subfolder_name = rel_path if rel_path != "." else "Root"
+                    df["subfolder"] = subfolder_name
 
-            # Spalten, bei denen nur der erste Wert vor einem Komma behalten werden soll
-            columns_to_clean = [
-                "Spieler Tigers", "Spieler Tigers 2", "Taktische Spielsituation",
-                "Nummerische Spielsituation", "XG", "ZOE For", "ZOE Against", "Action",
-                "Drittel", "Linien For", "Linien Against"  # ✅ NEU
-            ]
-            df = clean_first_value(df, columns_to_clean)
+                    # Nur für Season "Divers": Teams aus Dateiname extrahieren
+                    if df["season"].iloc[0] == "Divers":
+                        pattern = r'^(\d{4}-\d{2}-\d{2})_vs_([^_]+)_([^_]+)$'
+                        match = re.match(pattern, df["game"].iloc[0])
+                        if match:
+                            df["team_for"] = match.group(2)
+                            df["team_against"] = match.group(3)
+                        else:
+                            df["team_for"] = "Team For"
+                            df["team_against"] = "Team Against"
 
-            dfs.append(df)
+                    df = clean_first_value(df, columns_to_clean)
+                    all_data.append(df)
 
-    if not dfs:
-        raise ValueError(f"Keine gültigen CSV-Dateien gefunden in {season_path}")
+    if not all_data:
+        raise ValueError("Keine gültigen CSV-Dateien gefunden in den Datenordnern.")
 
-    return pd.concat(dfs, ignore_index=True)
+    return pd.concat(all_data, ignore_index=True)
