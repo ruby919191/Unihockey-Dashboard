@@ -113,14 +113,11 @@ all_df = get_all_games()
 
 # Saison-Filter
 verfügbare_saisons = sorted(all_df["season"].unique())
-aktuellste_saison = verfügbare_saisons[-1]  # Letzte (aktuellste) Saison
 
-# Standardmässig aktuellste Saison auswählen
-ausgewählte_saisons = st.sidebar.multiselect(
-    "📁 Saisons filtern:", 
-    verfügbare_saisons, 
-    default=[aktuellste_saison]
-)
+# Default-Auswahl: die aktuellste Saison (letztes Element im sortierten List)
+default_saison = [verfügbare_saisons[-1]] if verfügbare_saisons else []
+
+ausgewählte_saisons = st.sidebar.multiselect("📁 Saisons filtern:", verfügbare_saisons, default=default_saison)
 
 # Unterordner-Filter nur anzeigen, wenn 'Divers' ausgewählt ist
 unterordner = []
@@ -141,7 +138,12 @@ else:
 # Spielauswahl
 spiel_ids = sorted(gefiltert["game"].unique())
 auswahl = st.sidebar.multiselect("🎯 Spiele auswählen:", spiel_ids, default=spiel_ids[:1])
-df = gefiltert[gefiltert["game"].isin(auswahl)]
+
+# Wenn keine Spiele ausgewählt sind, alle Spiele der ausgewählten Saison(n) anzeigen
+if len(auswahl) == 0:
+    df = gefiltert.copy()
+else:
+    df = gefiltert[gefiltert["game"].isin(auswahl)]
 
 # Für Shotmaps: genau ein Spiel erforderlich
 if len(auswahl) == 1:
@@ -271,7 +273,7 @@ with tabs[tab_names.index("📥 Zone-Entries")]:
     st.subheader("🧍‍♂️ Zonen Entries Spieleraktivität")
     st.dataframe(get_player_zone_entries(df), use_container_width=True)
 
-# Player Data (nur anzeigen wenn nicht Divers)
+# Player Data (nur anzeigen, wenn nicht Divers)
 if selected_season != "Divers":
     with tabs[tab_names.index("🧍‍♂️ Player Data")]:
         st.subheader(f"🎯 Chancen pro Spieler - {team_for_name}")
