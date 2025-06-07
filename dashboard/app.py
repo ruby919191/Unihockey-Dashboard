@@ -113,7 +113,14 @@ all_df = get_all_games()
 
 # Saison-Filter
 verfügbare_saisons = sorted(all_df["season"].unique())
-ausgewählte_saisons = st.sidebar.multiselect("📁 Saisons filtern:", verfügbare_saisons, default=verfügbare_saisons)
+aktuellste_saison = verfügbare_saisons[-1]  # Letzte (aktuellste) Saison
+
+# Standardmässig aktuellste Saison auswählen
+ausgewählte_saisons = st.sidebar.multiselect(
+    "📁 Saisons filtern:", 
+    verfügbare_saisons, 
+    default=[aktuellste_saison]
+)
 
 # Unterordner-Filter nur anzeigen, wenn 'Divers' ausgewählt ist
 unterordner = []
