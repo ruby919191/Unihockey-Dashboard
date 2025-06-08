@@ -4,19 +4,20 @@ import os
 import sys
 from PIL import Image
 
-# 📦 Projektpfad ergänzen, damit 'src' gefunden wird
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-# 📥 Daten
 from src.data_loader import get_all_games
 
-# 📊 Gameplan & KPIs
+from src.analysis.gameoverview import (
+    get_goals_by_team, get_goals_per_period, get_chances_and_xg,
+    get_corsi_fenwick_percentage
+)
+
 from src.analysis.gameplan_kpi_summary import generate_kpi_summary
 from src.analysis.gameplan_corsi_fenwick import calculate_corsi_fenwick
 from src.analysis.gameplan_momentum import calculate_momentum_by_game
 from src.analysis.gameplan_save_percentage import calculate_save_percentages
 
-# 🎯 Chancen
 from src.analysis.chances_for import (
     count_chances_by_quality as chances_for_quality,
     count_chances_by_line as chances_for_line,
@@ -30,7 +31,6 @@ from src.analysis.chances_against import (
     count_chances_by_tactical_situation_detailed as chances_against_tactics
 )
 
-# 🧍‍♂️ Spieler
 from src.analysis.player_chances_for import get_chances_by_player
 from src.analysis.player_chances_by_tactics import count_player_chances_by_tactics
 from src.analysis.player_chances_by_high_mid import get_high_mid_chances_by_player
@@ -38,7 +38,6 @@ from src.analysis.player_shot_types import get_shot_types_by_player
 from src.analysis.player_zone_entries_for import get_player_zone_entries
 from src.analysis.player_pass_data import get_player_pass_participation
 
-# 📥 Zone Entries
 from src.analysis.zone_entries_for import (
     count_zone_entries_by_quality as zoe_for_quality,
     count_zone_entries_by_period as zoe_for_period,
@@ -50,16 +49,13 @@ from src.analysis.zone_entries_against import (
     count_zone_entries_against_by_line as zoe_against_line
 )
 
-# 🥅 Tore
 from src.analysis.goals import (
     get_goal_situation_counts,
     get_opponent_goal_situation_counts
 )
 
-# 📅 Saisonübersicht (Season Summary)
 from src.analysis.season_summary import calculate_season_summary
 
-# 🗺️ Shotmaps Helper
 def show_shotmaps(game_id: str, saison: str):
     base_path = os.path.dirname(os.path.abspath(__file__))
     base_path = os.path.abspath(os.path.join(base_path, ".."))
@@ -102,30 +98,20 @@ def show_shotmaps(game_id: str, saison: str):
     if not images_found:
         st.info("Keine Shotmap-Bilder gefunden. Bitte Game-ID und Dateinamen prüfen.")
 
-# =============================
-# Streamlit Setup
-# =============================
 st.set_page_config(page_title="🏑 Unihockey Dashboard", layout="wide")
 st.title("🏑 Unihockey Tigers Dashboard")
 
-# Alle Daten laden
 all_df = get_all_games()
 
-# Saison-Filter
 verfügbare_saisons = sorted(all_df["season"].unique())
-
-# Default-Auswahl: die aktuellste Saison (letztes Element im sortierten List)
 default_saison = [verfügbare_saisons[-1]] if verfügbare_saisons else []
-
 ausgewählte_saisons = st.sidebar.multiselect("📁 Saisons filtern:", verfügbare_saisons, default=default_saison)
 
-# Unterordner-Filter nur anzeigen, wenn 'Divers' ausgewählt ist
 unterordner = []
 if "Divers" in ausgewählte_saisons:
     alle_unterordner = sorted(all_df.loc[all_df["season"] == "Divers", "subfolder"].unique())
     unterordner = st.sidebar.multiselect("📂 Unterordner in 'Divers' wählen:", alle_unterordner, default=alle_unterordner)
 
-# Daten filtern nach Saison und ggf. Unterordner
 filter_saisons = [s for s in ausgewählte_saisons if s != "Divers"]
 if unterordner:
     gefiltert = all_df[
@@ -135,24 +121,20 @@ if unterordner:
 else:
     gefiltert = all_df[all_df["season"].isin(ausgewählte_saisons)]
 
-# Spielauswahl
 spiel_ids = sorted(gefiltert["game"].unique())
 auswahl = st.sidebar.multiselect("🎯 Spiele auswählen:", spiel_ids, default=spiel_ids[:1])
 
-# Wenn keine Spiele ausgewählt sind, alle Spiele der ausgewählten Saison(n) anzeigen
 if len(auswahl) == 0:
     df = gefiltert.copy()
 else:
     df = gefiltert[gefiltert["game"].isin(auswahl)]
 
-# Für Shotmaps: genau ein Spiel erforderlich
 if len(auswahl) == 1:
     selected_game = auswahl[0]
     selected_season = df.loc[df["game"] == selected_game, "season"].iloc[0]
 else:
     selected_game, selected_season = None, None
 
-# === Dynamische Teamnamen je nach Season ===
 if selected_season == "Divers" and "team_for" in df.columns and "team_against" in df.columns:
     team_for_name = df["team_for"].iloc[0]
     team_against_name = df["team_against"].iloc[0]
@@ -160,30 +142,105 @@ else:
     team_for_name = "Tigers"
     team_against_name = "Gegner"
 
-# =============================
-# Tabs definieren
-# =============================
-tab_names = ["📊 KPIs", "📘 Gameplan", "🎯 Chancen", "🥅 Tore", "📥 Zone-Entries"]
-
-# Player Data Tab nur anzeigen, wenn nicht Divers
+tab_names = ["📈 Game-Overview", "📊 KPIs", "📘 Gameplan", "🎯 Chancen", "🥅 Tore", "📥 Zone-Entries"]
 if selected_season != "Divers":
     tab_names.append("🧍‍♂️ Player Data")
-
-# Shotmaps Tab immer anzeigen
 tab_names.append("🗺️ Shotmaps")
-
-# Saisonübersicht Tab nur anzeigen, wenn nicht Divers
 if not ("Divers" in ausgewählte_saisons):
     tab_names.append("📅 Saisonübersicht")
 
 tabs = st.tabs(tab_names)
 
-# KPIs
+with tabs[tab_names.index("📈 Game-Overview")]:
+    st.header("Game Overview")
+
+    if selected_game is not None:
+        df_game = df[df["game"] == selected_game]
+
+        goals_team1, goals_team2 = get_goals_by_team(df_game, team_for_name, team_against_name)
+
+        def styled_score_box(team_name, score, is_winner):
+            color = "#d4edda" if is_winner else "#f8d7da"
+            return f"""
+            <div style="
+                background-color: {color};
+                border-radius: 10px;
+                padding: 30px;
+                text-align: center;
+                font-size: 64px;
+                font-weight: bold;
+                box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+                margin: 10px;
+            ">
+                <div style="font-size: 24px; margin-bottom: 10px;">{team_name}</div>
+                {score}
+            </div>
+            """
+
+        col1, col2 = st.columns(2)
+        with col1:
+            is_winner = goals_team1 > goals_team2
+            st.markdown(styled_score_box(team_for_name, goals_team1, is_winner), unsafe_allow_html=True)
+        with col2:
+            is_winner = goals_team2 > goals_team1
+            st.markdown(styled_score_box(team_against_name, goals_team2, is_winner), unsafe_allow_html=True)
+
+        goals_per_period_str = get_goals_per_period(df_game, team_for_name, team_against_name)
+        st.markdown(f"""
+        <div style='font-size: 20px; margin-top: 20px; font-weight: 600; text-align: center;'>
+            Tore pro Drittel: <span style='color:#007bff;'>{goals_per_period_str}</span><br>
+            <span style='font-size: 14px; font-weight: normal; color: gray;'>
+                Die erste Zahl ist immer {team_for_name} (For).
+            </span>
+        </div>
+        """, unsafe_allow_html=True)
+
+        chances_team1, chances_team2, xg_team1, xg_team2 = get_chances_and_xg(df_game)
+
+        def stat_card(title, value, color="#343a40"):
+            return f"""
+            <div style="
+                background-color: #f0f0f0;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 10px;
+                text-align: center;
+                font-weight: 600;
+                color: {color};
+                box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+                font-family: Arial, sans-serif;
+            ">
+                <div style="font-size: 16px; margin-bottom: 5px;">{title}</div>
+                <div style="font-size: 28px;">{value}</div>
+            </div>
+            """
+
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.markdown(stat_card(f"Gesamt-Chancen {team_for_name}", chances_team1), unsafe_allow_html=True)
+        with col2:
+            st.markdown(stat_card(f"Gesamt-Chancen {team_against_name}", chances_team2), unsafe_allow_html=True)
+        with col3:
+            st.markdown(stat_card(f"Gesamtes xG {team_for_name}", xg_team1), unsafe_allow_html=True)
+        with col4:
+            st.markdown(stat_card(f"Gesamtes xG {team_against_name}", xg_team2), unsafe_allow_html=True)
+
+        corsi_pct, fenwick_pct = get_corsi_fenwick_percentage(df_game)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(stat_card("Corsi %", f"{corsi_pct if corsi_pct is not None else 'N/A'} %"), unsafe_allow_html=True)
+        with col2:
+            st.markdown(stat_card("Fenwick %", f"{fenwick_pct if fenwick_pct is not None else 'N/A'} %"), unsafe_allow_html=True)
+
+    else:
+        st.info("Bitte genau ein Spiel auswählen, um die Game Overview anzuzeigen.")
+
+# Tab: KPIs
 with tabs[tab_names.index("📊 KPIs")]:
     st.subheader("📌 KPI Übersicht")
     st.dataframe(generate_kpi_summary(df, team_for_name, team_against_name), use_container_width=True)
 
-# Gameplan
+# Tab: Gameplan
 with tabs[tab_names.index("📘 Gameplan")]:
     st.subheader("📈 Momentum pro Spiel")
     st.dataframe(calculate_momentum_by_game(df), use_container_width=True)
@@ -191,7 +248,7 @@ with tabs[tab_names.index("📘 Gameplan")]:
     st.subheader("🔁 Corsi & Fenwick")
     st.dataframe(calculate_corsi_fenwick(df), use_container_width=True)
 
-# Chancen
+# Tab: Chancen
 with tabs[tab_names.index("🎯 Chancen")]:
     col1, col2 = st.columns(2)
     with col1:
@@ -219,7 +276,7 @@ with tabs[tab_names.index("🎯 Chancen")]:
     st.subheader(f"📋 Chancen Against nach Taktik (5:5 - {team_against_name})")
     st.dataframe(chances_against_tactics(df), use_container_width=True)
 
-# Tore
+# Tab: Tore
 with tabs[tab_names.index("🥅 Tore")]:
     st.subheader(f"🟢 Tore {team_for_name} (5:5, taktisch)")
     st.dataframe(get_goal_situation_counts(df, team_for_name), use_container_width=True)
@@ -248,7 +305,7 @@ with tabs[tab_names.index("🥅 Tore")]:
     else:
         st.warning("Keine Save %-Daten verfügbar.")
 
-# Zone Entries
+# Tab: Zone-Entries
 with tabs[tab_names.index("📥 Zone-Entries")]:
     col1, col2 = st.columns(2)
     with col1:
@@ -273,7 +330,7 @@ with tabs[tab_names.index("📥 Zone-Entries")]:
     st.subheader("🧍‍♂️ Zonen Entries Spieleraktivität")
     st.dataframe(get_player_zone_entries(df), use_container_width=True)
 
-# Player Data (nur anzeigen, wenn nicht Divers)
+# Tab: Player Data (nur wenn nicht Divers)
 if selected_season != "Divers":
     with tabs[tab_names.index("🧍‍♂️ Player Data")]:
         st.subheader(f"🎯 Chancen pro Spieler - {team_for_name}")
@@ -291,7 +348,7 @@ if selected_season != "Divers":
         st.subheader(f"🤝 Spielerbeteiligung bei Chancen - {team_for_name}")
         st.dataframe(get_player_pass_participation(df), use_container_width=True)
 
-# Shotmaps Tab (immer anzeigen)
+# Tab: Shotmaps (immer anzeigen)
 with tabs[tab_names.index("🗺️ Shotmaps")]:
     st.subheader("🗺️ Shotmaps")
     if selected_game and selected_season:
@@ -299,7 +356,7 @@ with tabs[tab_names.index("🗺️ Shotmaps")]:
     else:
         st.warning("Bitte genau ein Spiel auswählen, um Shotmaps zu sehen.")
 
-# Saisonübersicht Tab (nur wenn Divers nicht ausgewählt)
+# Tab: Saisonübersicht (nur wenn nicht Divers)
 if "📅 Saisonübersicht" in tab_names:
     with tabs[tab_names.index("📅 Saisonübersicht")]:
         st.subheader("📅 Saisonübersicht")
