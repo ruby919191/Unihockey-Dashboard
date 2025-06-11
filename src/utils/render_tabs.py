@@ -20,7 +20,13 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
     tabs = st.tabs(tab_names)
 
     with tabs[tab_names.index("📈 Game-Overview")]:
-        render_game_overview_tab(df, selected_game, team_for_name, team_against_name)
+        render_game_overview_tab(
+            df,
+            selected_game,
+            team_for_name,
+            team_against_name,
+            selected_season  # ✅ hier ergänzt
+        )
 
     with tabs[tab_names.index("📊 KPIs")]:
         render_kpi_tab(df, team_for_name, team_against_name)

@@ -28,7 +28,7 @@ from src.data_loader import get_all_games
 from src.utils.filters import apply_filters
 
 # 📐 Layout
-from src.config.layout import configure_layout
+from src.utils.layout import configure_layout
 configure_layout()
 
 # 📂 Daten laden und filtern

@@ -1,4 +1,5 @@
 import streamlit as st
+import urllib.parse
 from src.analysis.gameoverview import (
     get_goals_by_team, get_goals_per_period, get_chances_and_xg,
     get_corsi_fenwick_percentage
@@ -40,7 +41,7 @@ def stat_card(title, value, color="#343a40"):
     </div>
     """
 
-def render_game_overview_tab(df, selected_game, team_for_name, team_against_name):
+def render_game_overview_tab(df, selected_game, team_for_name, team_against_name, selected_season):
     st.header("Game Overview")
 
     df_game = df[df["game"] == selected_game]
@@ -83,3 +84,22 @@ def render_game_overview_tab(df, selected_game, team_for_name, team_against_name
         st.markdown(stat_card("Corsi %", f"{corsi_pct if corsi_pct is not None else 'N/A'} %"), unsafe_allow_html=True)
     with col2:
         st.markdown(stat_card("Fenwick %", f"{fenwick_pct if fenwick_pct is not None else 'N/A'} %"), unsafe_allow_html=True)
+
+    # 🔗 Teilen-Button mit Spiel-Link
+    base_url = "https://unihockey-dashboard-uz5wbxvdkkwkqxsevqbrc2.streamlit.app/"
+    game_url = f"{base_url}?season={urllib.parse.quote(selected_season)}&game={urllib.parse.quote(selected_game)}"
+    st.markdown("---")
+    st.markdown(f"""
+        <div style='text-align:center; margin-top:20px;'>
+            <a href="{game_url}" target="_blank" style="
+                background-color:#007bff;
+                color:white;
+                padding:10px 20px;
+                border-radius:8px;
+                text-decoration:none;
+                font-weight:bold;
+                box-shadow:1px 1px 4px rgba(0,0,0,0.2);">
+                📤 Spiel teilen
+            </a>
+        </div>
+    """, unsafe_allow_html=True)
