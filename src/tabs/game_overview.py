@@ -4,6 +4,7 @@ from src.analysis.gameoverview import (
     get_goals_by_team, get_goals_per_period, get_chances_and_xg,
     get_corsi_fenwick_percentage
 )
+from src.utils.helpers import get_opponent_display_name  # ✅ neu
 
 def styled_score_box(team_name, score, is_winner):
     color = "#d4edda" if is_winner else "#f8d7da"
@@ -42,7 +43,8 @@ def stat_card(title, value, color="#343a40"):
     """
 
 def render_game_overview_tab(df, selected_game, team_for_name, team_against_name, selected_season):
-    st.header("Game Overview")
+    opponent_display = get_opponent_display_name(selected_season, selected_game)  # ✅ neu
+    st.header(f"Game Overview vs {opponent_display}")  # ✅ neu
 
     df_game = df[df["game"] == selected_game]
 
@@ -87,7 +89,7 @@ def render_game_overview_tab(df, selected_game, team_for_name, team_against_name
 
     # 🔗 Teilen-Button mit Spiel-Link
     base_url = "https://unihockey-dashboard-uz5wbxvdkkwkqxsevqbrc2.streamlit.app/"
-    game_url = f"{base_url}?season={urllib.parse.quote(selected_season)}&game={urllib.parse.quote(selected_game)}"
+    game_url = f"{base_url}?season={urllib.parse.quote(str(selected_season))}&game={urllib.parse.quote(str(selected_game))}"
     st.markdown("---")
     st.markdown(f"""
         <div style='text-align:center; margin-top:20px;'>
