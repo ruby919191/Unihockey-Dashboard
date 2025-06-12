@@ -27,7 +27,7 @@ from src.utils.layout import configure_layout
 
 # 📄 Weitere Seiten
 from src.pages.trend_page import render_trend_page
-from src.pages.opponent_preperation import render_opponent_preparation_page
+
 
 # 🧱 Layout konfigurieren
 configure_layout()
@@ -36,7 +36,7 @@ configure_layout()
 seitenwahl = st.sidebar.radio("Navigation", [
     "📊 Dashboard",
     "📈 Trend-Analyse",
-    "📋 Gegnervorbereitung"
+    
 ])
 
 # 📥 Daten laden und filtern
@@ -59,5 +59,3 @@ if seitenwahl == "📊 Dashboard":
 elif seitenwahl == "📈 Trend-Analyse":
     render_trend_page(all_df)
 
-elif seitenwahl == "📋 Gegnervorbereitung":
-    render_opponent_preparation_page()
