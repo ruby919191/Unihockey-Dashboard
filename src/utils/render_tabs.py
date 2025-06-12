@@ -8,14 +8,23 @@ from src.tabs.zone_entries import render_zone_entries_tab
 from src.tabs.player_data import render_player_data_tab
 from src.tabs.shotmaps import render_shotmaps_tab
 from src.tabs.season_summary import render_season_summary_tab
+from src.tabs.saisonverlauf import render_saisonverlauf_tab  # neu importieren
 
 def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_saisons, team_for_name, team_against_name):
-    tab_names = ["📈 Game-Overview", "📊 KPIs", "📘 Gameplan", "🎯 Chancen", "🥅 Tore", "📥 Zone-Entries"]
+    tab_names = [
+        "📈 Game-Overview", 
+        "📊 KPIs", 
+        "📘 Gameplan", 
+        "🎯 Chancen", 
+        "🥅 Tore", 
+        "📥 Zone-Entries"
+    ]
     if selected_season != "Divers":
         tab_names.append("🧍‍♂️ Player Data")
     tab_names.append("🗺️ Shotmaps")
     if "Divers" not in ausgewählte_saisons:
         tab_names.append("📅 Saisonübersicht")
+        tab_names.append("📅 Saisonverlauf")  # hier neu ergänzt
 
     tabs = st.tabs(tab_names)
 
@@ -25,7 +34,7 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
             selected_game,
             team_for_name,
             team_against_name,
-            selected_season  # ✅ hier ergänzt
+            selected_season
         )
 
     with tabs[tab_names.index("📊 KPIs")]:
@@ -53,3 +62,7 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
     if "📅 Saisonübersicht" in tab_names:
         with tabs[tab_names.index("📅 Saisonübersicht")]:
             render_season_summary_tab(all_df, ausgewählte_saisons)
+
+    if "📅 Saisonverlauf" in tab_names:  # neu
+        with tabs[tab_names.index("📅 Saisonverlauf")]:
+            render_saisonverlauf_tab(all_df, ausgewählte_saisons)

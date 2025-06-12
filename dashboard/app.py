@@ -17,6 +17,7 @@ from src.tabs.player_data import render_player_data_tab
 from src.tabs.shotmaps import render_shotmaps_tab
 from src.tabs.season_summary import render_season_summary_tab
 from src.tabs.trend_page import render_trend_page
+from src.tabs.saisonverlauf import render_saisonverlauf_tab  # Für Untertab im Dashboard
 
 # 🔧 Utils
 from src.utils.data_handling import load_and_filter_data
@@ -33,7 +34,7 @@ all_df, df, ausgewählte_saisons, selected_game, selected_season, ist_einzelspie
 # 🧠 Teamnamen ermitteln
 team_for_name, team_against_name = determine_team_names(df, selected_season)
 
-# 📄 Dynamische Seitenauswahl
+# 📄 Navigation (Sidebar) mit Dashboard + optional Trend-Analyse
 seiten = {
     "📊 Dashboard": lambda: render_all_tabs(
         df=df,
@@ -46,12 +47,11 @@ seiten = {
     )
 }
 
-# 📈 Trend-Analyse nur anzeigen, wenn kein Einzelspiel
 if not ist_einzelspiel:
     seiten["📈 Trend-Analyse"] = lambda: render_trend_page(all_df)
 
-# 🚀 Navigation anzeigen
+# 🚀 Sidebar-Navigation anzeigen
 seitenwahl = st.sidebar.radio("Navigation", list(seiten.keys()))
 
-# 🔁 Gewählte Seite ausführen
+# 🔁 Ausgewählte Seite ausführen
 seiten[seitenwahl]()
