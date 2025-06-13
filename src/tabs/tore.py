@@ -1,7 +1,8 @@
 import streamlit as st
 from src.analysis.goals import (
     get_goal_situation_counts,
-    get_opponent_goal_situation_counts
+    get_opponent_goal_situation_counts,
+    get_plus_minus_line_table  # ✅ hinzugefügt
 )
 from src.analysis.gameplan_save_percentage import calculate_save_percentages
 
@@ -32,3 +33,9 @@ def render_tore_tab(df, team_for_name, team_against_name):
             st.warning("Nicht genügend Daten zur Save %-Analyse.")
     else:
         st.warning("Keine Save %-Daten verfügbar.")
+
+    # ➕➖ Linien-Bilanz bei 5:5
+    st.markdown("---")
+    st.subheader("➕➖ Linien-Bilanz bei 5:5")
+    plus_minus_df = get_plus_minus_line_table(df)
+    st.dataframe(plus_minus_df, use_container_width=True)
