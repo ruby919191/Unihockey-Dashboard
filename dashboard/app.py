@@ -3,7 +3,7 @@ import os
 import sys
 from PIL import Image
 
-# 📦 Projektpfad ergänzen
+# 📦 Projektpfad ergänzen (damit Imports funktionieren)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 # 📥 Tabs importieren
@@ -16,14 +16,18 @@ from src.tabs.zone_entries import render_zone_entries_tab
 from src.tabs.player_data import render_player_data_tab
 from src.tabs.shotmaps import render_shotmaps_tab
 from src.tabs.season_summary import render_season_summary_tab
-from src.tabs.trend_page import render_trend_page
 from src.tabs.saisonverlauf import render_saisonverlauf_tab  # Für Untertab im Dashboard
 
-# 🔧 Utils
+
+
+
+# 🔧 Utils importieren
+from src.utils.render_trends import render_trends_page
 from src.utils.data_handling import load_and_filter_data
 from src.utils.team_utils import determine_team_names
 from src.utils.render_tabs import render_all_tabs
 from src.utils.layout import configure_layout
+
 
 # 🧱 Layout konfigurieren
 configure_layout()
@@ -34,7 +38,7 @@ all_df, df, ausgewählte_saisons, selected_game, selected_season, ist_einzelspie
 # 🧠 Teamnamen ermitteln
 team_for_name, team_against_name = determine_team_names(df, selected_season)
 
-# 📄 Navigation (Sidebar) mit Dashboard + optional Trend-Analyse
+# 📄 Navigation im Sidebar: Dashboard + optional Trend-Analyse
 seiten = {
     "📊 Dashboard": lambda: render_all_tabs(
         df=df,
@@ -47,11 +51,12 @@ seiten = {
     )
 }
 
+# ✅ Trendanalyse nur anzeigen, wenn nicht Einzelspiel
 if not ist_einzelspiel:
-    seiten["📈 Trend-Analyse"] = lambda: render_trend_page(all_df)
+    seiten["📈 Trend-Analyse"] = lambda: render_trends_page(all_df)
 
-# 🚀 Sidebar-Navigation anzeigen
+# Sidebar Navigation
 seitenwahl = st.sidebar.radio("Navigation", list(seiten.keys()))
 
-# 🔁 Ausgewählte Seite ausführen
+# Gewählte Seite ausführen
 seiten[seitenwahl]()
