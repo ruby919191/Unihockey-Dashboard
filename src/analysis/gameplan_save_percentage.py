@@ -1,35 +1,52 @@
 import pandas as pd
+import re
 
-def calculate_save_percentages(df):
-    """
-    Berechnet die Save Percentage für Tigers und Gegner pro Spiel.
-    Annahme: 'Schussmetrik' gibt an, ob ein Schuss 'Auf Tor', 'Neben Tor' oder 'Geblockt' ist,
-    'Action' enthält Treffer ('Tor Tigers', 'Tor Gegner').
-    """
+def calculate_dynamic_save_percentages(df, team_for, team_against):
     results = []
 
     for game_id, group in df.groupby("game"):
-        shots_on_tigers = group[(group["Schussmetrik"] == "Auf Tor") & (group["Action"].str.contains("Chance Against", na=False))]
-        goals_on_tigers = group[group["Action"].str.contains("Tor Tigers", na=False)]
+        # Gegentore zählen
+        goals_against = group[group["Action"].str.startswith(f"Tor {team_for}")]
+        goals_for = group[group["Action"].str.startswith(f"Tor {team_against}")]
 
-        shots_on_opponent = group[(group["Schussmetrik"] == "Auf Tor") & (group["Action"].str.contains("Chance For", na=False))]
-        goals_on_opponent = group[group["Action"].str.contains("Tor Gegner", na=False)]
+        # Korrekte Regex-Muster
+        chance_for_pattern = r"^(Low Q Chance|Mid Q Chance|High Q Chance|Pot \+ Chance) For"
+        chance_against_pattern = r"^(Low Q Chance|Mid Q Chance|High Q Chance|Pot \+ Chance) Against"
 
-        # Anzahl Schüsse aufs Tor
-        shots_tigers = len(shots_on_tigers)
-        shots_opponent = len(shots_on_opponent)
+        # Schüsse aufs Tor
+        shots_against = group[
+            group["Action"].str.contains(chance_for_pattern, na=False, regex=True) &
+            (group["Schussmetrik"] == "Auf Tor")
+        ]
+        shots_for = group[
+            group["Action"].str.contains(chance_against_pattern, na=False, regex=True) &
+            (group["Schussmetrik"] == "Auf Tor")
+        ]
 
-        # Anzahl Gegentore
-        goals_tigers = len(goals_on_tigers)
-        goals_opponent = len(goals_on_opponent)
+        # Zählungen
+        n_goals_against = len(goals_against)
+        n_goals_for = len(goals_for)
+        n_shots_against = len(shots_against)
+        n_shots_for = len(shots_for)
 
-        save_perc_tigers = round(((shots_tigers - goals_tigers) / shots_tigers) * 100, 1) if shots_tigers > 0 else None
-        save_perc_opponent = round(((shots_opponent - goals_opponent) / shots_opponent) * 100, 1) if shots_opponent > 0 else None
+        # Berechnung mit Fehlerabfang
+        if n_shots_against > 0:
+            val = ((n_shots_against - n_goals_against) / n_shots_against) * 100
+            save_perc_against = round(val, 1) if val >= 0 else 0.0
+        else:
+            save_perc_against = None
 
+        if n_shots_for > 0:
+            val = ((n_shots_for - n_goals_for) / n_shots_for) * 100
+            save_perc_for = round(val, 1) if val >= 0 else 0.0
+        else:
+            save_perc_for = None
+
+        # Ergebnis speichern
         results.append({
             "game": game_id,
-            "Save % For": save_perc_opponent,
-            "Save % Against": save_perc_tigers
+            f"Save % {team_for}": save_perc_for,
+            f"Save % {team_against}": save_perc_against
         })
 
     return pd.DataFrame(results)

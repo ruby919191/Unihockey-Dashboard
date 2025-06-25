@@ -5,7 +5,9 @@ def get_game_goals(df, team_name, opponent_name):
     opponent_prefix = f"Tor {opponent_name}"
 
     goals_team = df[df["Action"].str.startswith(team_prefix)].shape[0]
-    goals_opponent = df[df["Action"].str.startswith(opponent_prefix)].shape[0]
+    goals_opponent = df[
+        df["Action"].str.startswith(opponent_prefix) | df["Action"].str.startswith("Tor Gegner")
+    ].shape[0]
 
     return {
         team_name: goals_team,
@@ -21,9 +23,11 @@ def get_team_goals_with_situation(df, team_name):
     return filtered[["Action", "Taktische Spielsituation"]].reset_index(drop=True)
 
 def get_opponent_goals_with_situation(df, opponent_name="Gegner"):
-    prefix = f"Tor {opponent_name}"
+    if opponent_name.lower().strip() == "gegner" and "team_against" in df.columns:
+        opponent_name = df["team_against"].iloc[0]
+
     filtered = df[
-        df["Action"].str.startswith(prefix) &
+        (df["Action"].str.startswith(f"Tor {opponent_name}") | df["Action"].str.startswith("Tor Gegner")) &
         (df["Nummerische Spielsituation"] == "5:5")
     ]
     return filtered[["Action", "Taktische Spielsituation"]].reset_index(drop=True)
@@ -33,17 +37,46 @@ def get_goal_situation_counts(df, team_name):
     filtered = df[
         df["Action"].str.startswith(prefix) &
         (df["Nummerische Spielsituation"] == "5:5")
-    ]
+    ].copy()
+
+    filtered["Taktik"] = filtered["Taktische Spielsituation"].fillna("").astype(str).str.strip()
+    filtered.loc[filtered["Taktik"] == "", "Taktik"] = filtered["Nummerische Spielsituation"]
 
     grouped = (
-        filtered.groupby("Taktische Spielsituation")
+        filtered.groupby("Taktik")
         .size()
         .reset_index(name="Tore")
         .sort_values(by="Tore", ascending=False)
     )
 
     total_row = pd.DataFrame([{
-        "Taktische Spielsituation": "Total",
+        "Taktik": "Total",
+        "Tore": grouped["Tore"].sum()
+    }])
+
+    return pd.concat([grouped, total_row], ignore_index=True)
+
+def get_opponent_goal_situation_counts(df, opponent_name="Gegner"):
+    if opponent_name.lower().strip() == "gegner" and "team_against" in df.columns:
+        opponent_name = df["team_against"].iloc[0]
+
+    filtered = df[
+        (df["Action"].str.startswith(f"Tor {opponent_name}") | df["Action"].str.startswith("Tor Gegner")) &
+        (df["Nummerische Spielsituation"] == "5:5")
+    ].copy()
+
+    filtered["Taktik"] = filtered["Taktische Spielsituation"].fillna("").astype(str).str.strip()
+    filtered.loc[filtered["Taktik"] == "", "Taktik"] = filtered["Nummerische Spielsituation"]
+
+    grouped = (
+        filtered.groupby("Taktik")
+        .size()
+        .reset_index(name="Tore")
+        .sort_values(by="Tore", ascending=False)
+    )
+
+    total_row = pd.DataFrame([{
+        "Taktik": "Total",
         "Tore": grouped["Tore"].sum()
     }])
 
@@ -83,7 +116,8 @@ def get_opponent_line_goals(df):
 
     df_even["opponent_name"] = df_even.apply(get_team_against, axis=1)
     df_even["is_opponent_goal"] = df_even.apply(
-        lambda r: r["Action"].startswith(f"Tor {r['opponent_name']}"), axis=1
+        lambda r: r["Action"].startswith(f"Tor {r['opponent_name']}") or r["Action"].startswith("Tor Gegner"),
+        axis=1
     )
 
     goals_against = (
@@ -110,28 +144,5 @@ def get_plus_minus_line_table(df):
     merged["Gegentore"] = merged["Gegentore"].astype(int)
     merged["+/-"] = merged["Tore"] - merged["Gegentore"]
 
-    # Nur L1, L2, L3 anzeigen
     filtered = merged[merged["Linien For"].isin(["L1", "L2", "L3"])]
     return filtered.sort_values(by="+/-", ascending=False).reset_index(drop=True)
-
-def get_opponent_goal_situation_counts(df, opponent_name="Gegner"):
-    prefix = f"Tor {opponent_name}"
-    filtered = df[
-        df["Action"].str.startswith(prefix) &
-        (df["Nummerische Spielsituation"] == "5:5")
-    ]
-
-    grouped = (
-        filtered.groupby("Taktische Spielsituation")
-        .size()
-        .reset_index(name="Tore")
-        .sort_values(by="Tore", ascending=False)
-    )
-
-    total = grouped["Tore"].sum()
-    total_row = pd.DataFrame([{
-        "Taktische Spielsituation": "Total",
-        "Tore": total
-    }])
-
-    return pd.concat([grouped, total_row], ignore_index=True)

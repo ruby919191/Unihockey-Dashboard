@@ -1,38 +1,22 @@
 import pandas as pd
 
 def count_goals_by_situation(df, team_name, opponent_name, situation_for, situation_against):
+    """
+    Zählt Tore in einer nummerischen Spielsituation, getrennt für team_name und opponent_name.
+    Funktioniert für Saison- und Divers-Dateien.
+    """
+
     df_for = df[df["Nummerische Spielsituation"] == situation_for]
     df_against = df[df["Nummerische Spielsituation"] == situation_against]
 
-    is_divers = (df["season"].iloc[0] == "Divers") if ("season" in df.columns and not df.empty) else False
+    # Tore für dein Team
+    goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_name}")].shape[0]
 
-    # Tore für team_name
-    if is_divers and not df_for.empty:
-        team_for = df_for["team_for"].iloc[0]
-        team_against = df_for["team_against"].iloc[0]
-        if team_name == team_for:
-            goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_for}")].shape[0]
-        elif team_name == team_against:
-            goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_against}")].shape[0]
-        else:
-            goals_for = 0
-    else:
-        goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_name}")].shape[0]
-
-    # Tore für opponent_name
-    if is_divers and not df_against.empty:
-        team_for = df_against["team_for"].iloc[0]
-        team_against = df_against["team_against"].iloc[0]
-        if opponent_name == team_for:
-            goals_against = df_against[df_against["Action"].str.startswith(f"Tor {team_for}")].shape[0]
-        elif opponent_name == team_against:
-            goals_against = df_against[df_against["Action"].str.startswith(f"Tor {team_against}")].shape[0]
-        else:
-            goals_against = 0
-    else:
-        goals_against = df_against[df_against["Action"].str.startswith(f"Tor {opponent_name}")].shape[0]
+    # Tore für Gegner
+    goals_against = df_against[df_against["Action"].str.startswith(f"Tor {opponent_name}")].shape[0]
 
     return goals_for, goals_against
+
 
 def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     # Flags für Chancen
@@ -44,7 +28,7 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     chances_against = df["is_chance_against"].sum()
     chance_diff = chances_for - chances_against
 
-    # Corsi und Fenwick
+    # Corsi & Fenwick
     corsi_for = chances_for
     corsi_against = chances_against
     corsi_pct = round((corsi_for / (corsi_for + corsi_against)) * 100, 1) if (corsi_for + corsi_against) > 0 else 0
@@ -54,32 +38,35 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     fenwick_pct = round((fenwick_for / (fenwick_for + fenwick_against)) * 100, 1) if (fenwick_for + fenwick_against) > 0 else 0
 
     # 5:5 Tore
-    df_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}") & (df["Nummerische Spielsituation"] == "5:5")] if "Nummerische Spielsituation" in df.columns else pd.DataFrame()
-    df_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}") & (df["Nummerische Spielsituation"] == "5:5")] if "Nummerische Spielsituation" in df.columns else pd.DataFrame()
+    df_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}") & (df["Nummerische Spielsituation"] == "5:5")]
+    df_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}") & (df["Nummerische Spielsituation"] == "5:5")]
     goals_for = df_goals_for.shape[0]
     goals_against = df_goals_against.shape[0]
     goal_diff = goals_for - goals_against
 
-    # Powerplay Tore 5:4 / 4:5
+    # Special Situation Tore
     pp_goals_for, pp_goals_against = count_goals_by_situation(df, team_name, opponent_name, "5:4", "4:5")
-
-    # Boxplay Tore 4:5 / 5:4
     bp_goals_for, bp_goals_against = count_goals_by_situation(df, team_name, opponent_name, "4:5", "5:4")
-
-    # 6:5 Tore Tigers / Gegner
     six_five_goals_for, six_five_goals_against = count_goals_by_situation(df, team_name, opponent_name, "6:5", "6:5")
-
-    # 5:6 Tore Tigers / Gegner
     five_six_goals_for, five_six_goals_against = count_goals_by_situation(df, team_name, opponent_name, "5:6", "5:6")
+
+    # Spezialtore total (nicht 5:5)
+    special_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}") & (df["Nummerische Spielsituation"] != "5:5")].shape[0]
+    total_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}")].shape[0]
+    special_pct_for = round((special_goals_for / total_goals_for) * 100, 1) if total_goals_for > 0 else 0
+
+    special_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}") & (df["Nummerische Spielsituation"] != "5:5")].shape[0]
+    total_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}")].shape[0]
+    special_pct_against = round((special_goals_against / total_goals_against) * 100, 1) if total_goals_against > 0 else 0
 
     # Effizienz
     efficiency = round((goals_for / chances_for) * 100, 1) if chances_for > 0 else 0
 
-    # Mid-High %
+    # Mid/High Q %
     high_mid_for = df[df["Action"].str.contains("High Q Chance For|Mid Q Chance For", na=False)].shape[0]
     mid_high_pct = round((high_mid_for / chances_for) * 100, 1) if chances_for > 0 else 0
 
-    # ZOE For
+    # ZOE-Auswertung
     if "ZOE_For" in df.columns:
         zoe_for = df[df["Action"].str.contains("ZOE For", na=False)]
         good_zoe_for = zoe_for[zoe_for["ZOE_For"] == "Good"].shape[0] if not zoe_for.empty else 0
@@ -89,7 +76,6 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
         good_zoe_for_pct = 0
         zoe_for_total = 0
 
-    # ZOE Against
     if "ZOE_Against" in df.columns:
         zoe_against = df[df["Action"].str.contains("ZOE Gegner", na=False)]
         good_zoe_against = zoe_against[zoe_against["ZOE_Against"] == "Good"].shape[0] if not zoe_against.empty else 0
@@ -99,31 +85,16 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
         good_zoe_against_pct = 0
         zoe_against_total = 0
 
-    # Konter
-    counter_for = df[df["Action"].str.contains("Chance For", na=False) & (df.get("Taktische Spielsituation") == "Konter")].shape[0] if "Taktische Spielsituation" in df.columns else 0
-    counter_against = df[df["Action"].str.contains("Chance Against", na=False) & (df.get("Taktische Spielsituation") == "Konter")].shape[0] if "Taktische Spielsituation" in df.columns else 0
+    # Konter / Auslösung
+    counter_for = df[df["is_chance_for"] & (df.get("Taktische Spielsituation") == "Konter")].shape[0] if "Taktische Spielsituation" in df.columns else 0
+    counter_against = df[df["is_chance_against"] & (df.get("Taktische Spielsituation") == "Konter")].shape[0] if "Taktische Spielsituation" in df.columns else 0
     counter_diff = counter_for - counter_against
 
-    # Auslösung
-    build_for = df[df["Action"].str.contains("Chance For", na=False) & (df.get("Taktische Spielsituation") == "Auslösung")].shape[0] if "Taktische Spielsituation" in df.columns else 0
-    build_against = df[df["Action"].str.contains("Chance Against", na=False) & (df.get("Taktische Spielsituation") == "Auslösung")].shape[0] if "Taktische Spielsituation" in df.columns else 0
+    build_for = df[df["is_chance_for"] & (df.get("Taktische Spielsituation") == "Auslösung")].shape[0] if "Taktische Spielsituation" in df.columns else 0
+    build_against = df[df["is_chance_against"] & (df.get("Taktische Spielsituation") == "Auslösung")].shape[0] if "Taktische Spielsituation" in df.columns else 0
     build_diff = build_for - build_against
 
-    # Spezial-Situationen: Chancen Tigers (alles außer 5:5 inkl. 4:4)
-    spezial_chancen_for = df[
-        (df["is_chance_for"]) & (~df["Nummerische Spielsituation"].isin(["5:5"]))
-    ].shape[0]
-
-    # Spezial-Situationen: Chancen Gegner (alles außer 5:5 inkl. 4:4)
-    spezial_chancen_against = df[
-        (df["is_chance_against"]) & (~df["Nummerische Spielsituation"].isin(["5:5"]))
-    ].shape[0]
-
-    gesamt_chancen = chances_for + chances_against
-    spezial_pct_for = round((spezial_chancen_for / chances_for) * 100, 1) if chances_for > 0 else 0
-    spezial_pct_against = round((spezial_chancen_against / chances_against) * 100, 1) if chances_against > 0 else 0
-
-    # KPI-Tabelle mit dynamischen Teamnamen
+    # KPI-Tabelle
     kpis = [
         (f"Chancen {team_name}", chances_for),
         (f"Chancen {opponent_name}", chances_against),
@@ -141,8 +112,8 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
         (f"5:6 Tore {team_name}", five_six_goals_for),
         (f"5:6 Tore {opponent_name}", five_six_goals_against),
         ("Tordifferenz (5:5)", f"{'+' if goal_diff >= 0 else ''}{goal_diff}"),
-        (f"Spezial % {team_name}", f"{spezial_pct_for} %"),
-        (f"Spezial % {opponent_name}", f"{spezial_pct_against} %"),
+        (f"Spezial % {team_name}", f"{special_pct_for} %"),
+        (f"Spezial % {opponent_name}", f"{special_pct_against} %"),
         ("Effizienz (Tore/Chancen)", f"{efficiency} %"),
         ("Mid-High %", f"{mid_high_pct} %"),
         (f"ZOE {team_name} - Good %", f"{good_zoe_for_pct} %"),
