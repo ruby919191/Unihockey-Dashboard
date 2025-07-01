@@ -1,0 +1,113 @@
+Spiel,Action,Drittel,Def. Zone,Linien For,Nachsetzen,Nummerische Spielsituation,Off. Zone,Schusslabels,Spieler Tigers,Taktische Spielsituation,XG,ZOE_For,ZOE_Against
+PFVF4_SVWE,ZOE Gegner: 1,D1,,L1,,5:5,,,,Auslösung,,,Bad
+PFVF4_SVWE,ZOE Gegner: 2,D1,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 3,D1,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 4,D1,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 5,D1,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 6,D1,,L2,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 7,D1,,L3,,5:5,,,,Auslösung,0.2,,Good
+PFVF4_SVWE,ZOE Gegner: 8,D1,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 9,D1,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 10,D1,,L2,,5:5,,,,Auslösung,,,Bad
+PFVF4_SVWE,ZOE Gegner: 11,D1,,L2,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 12,D2,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 13,D2,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 14,D2,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 15,D2,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 16,D2,,L3,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 17,D2,,L2,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 18,D2,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 19,D3,,L2,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 20,D3,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 21,D3,,"L2, L2",,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,ZOE Gegner: 22,D3,,L1,,5:5,,,,Auslösung,,,Good
+PFVF4_SVWE,Pot + Chance For: 1,D1,,L1,,5:5,,Gezogen,Matteo Steiner,Konter,0.3,,
+PFVF4_SVWE,Pot + Chance For: 2,D1,,L1,,5:5,,Gezogen,Matteo Steiner,Auslösung,0.2,,
+PFVF4_SVWE,Pot + Chance For: 3,D1,,L3,,5:5,,Gezogen,Arno Althaus,Konter,0.2,,
+PFVF4_SVWE,ZOE For: 1,D1,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 2,D1,,L1,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 3,D1,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 4,D1,,L1,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 5,D1,,L1,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 6,D2,,L1,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 7,D2,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 8,D2,,L1,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 9,D2,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 10,D2,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 11,D2,,L3,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 12,D2,,L1,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 13,D2,,L1,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 14,D2,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 15,D2,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 16,D2,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 17,D3,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 18,D3,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 19,D3,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,ZOE For: 20,D3,,L1,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 21,D3,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 22,D3,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,ZOE For: 23,D3,,L2,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,High Q Chance For: 1,D1,,L2,,5:5,,Direkt,Kevin Kropf,Auslösung,0.4,,
+PFVF4_SVWE,High Q Chance For: 2,D1,,L1,,5:5,,Handgelenk,Nick Pfister,Konter,0.4,,
+PFVF4_SVWE,High Q Chance For: 3,D1,,L1,,5:5,,Direkt,Matteo Steiner,Auslösung,0.5,,
+PFVF4_SVWE,Tor Tigers: 1,D1,,L2,,5:5,,Volley,Kevin Kropf,Standart,0.3,,
+PFVF4_SVWE,Tor Tigers: 2,D3,,L2,,5:5,,Gezogen,Thomas Gfeller,Standart,0.2,,
+PFVF4_SVWE,Zone-Exits: 1,D1,,L3,,5:5,,,,Auslösung,,Good,
+PFVF4_SVWE,Zone-Exits: 2,D1,,L3,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,Zone-Exits: 3,D1,,L3,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,Zone-Exits: 4,D2,,L3,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,Zone-Exits: 5,D3,,L1,,5:5,,,Martin Mosimann,Auslösung,,Bad,
+PFVF4_SVWE,Zone-Exits: 6,D3,,L2,,5:5,,,,Auslösung,,Bad,
+PFVF4_SVWE,Low Q Chance Against: 1,D1,,L2,,5:5,,Handgelenk,,Standart,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 2,D1,,L2,,5:5,,Gezogen,,Standart,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 3,D1,,L2,,5:5,,Direkt,,Standart,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 4,D1,,L1,,5:5,,Gezogen,,Auslösung,0.2,,
+PFVF4_SVWE,Low Q Chance Against: 5,D1,,L2,,5:5,,Gezogen,,Standart,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 6,D1,,L3,,5:5,,Gezogen,,Konter,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 7,D2,,L1,,5:5,,Handgelenk,,Auslösung,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 8,D2,,L1,,5:5,,Gezogen,,Konter,0.2,,
+PFVF4_SVWE,Low Q Chance Against: 9,D2,,L2,,5:5,,Handgelenk,,Auslösung,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 10,D2,,L1,,5:5,,Direkt,,Auslösung,0.2,,
+PFVF4_SVWE,Low Q Chance Against: 11,D3,,L1,,5:5,,Handgelenk,,Festsetzen,0.1,,
+PFVF4_SVWE,Low Q Chance Against: 12,D3,,L1,,5:5,,Gezogen,,Festsetzen,0.1,,
+PFVF4_SVWE,Tor Gegner: 1,D1,,L1,,5:5,,Gezogen,,Auslösung,0.2,,
+PFVF4_SVWE,Tor Gegner: 2,D2,,L1,,5:5,,Gezogen,,Konter,0.3,,
+PFVF4_SVWE,Tor Gegner: 3,D3,,L2,,5:5,,Volley,,Festsetzen,0.6,,
+PFVF4_SVWE,Tor Gegner: 4,D3,,L1,,5:5,,Handgelenk,,Konter,0.3,,
+PFVF4_SVWE,Tor Gegner: 5,D3,,L2,,5:5,,Direkt,,Festsetzen,0.5,,
+PFVF4_SVWE,Tor Gegner: 6,D3,,6:5,,4:5,,Handgelenk,,,0.7,,
+PFVF4_SVWE,Tor Gegner: 7,D3,,,,5:6,,Direkt,,,0.7,,
+PFVF4_SVWE,Divers: 1,D1,,L3,,5:5,,,,,,,
+PFVF4_SVWE,Divers: 2,,,,,,,,,,,,
+PFVF4_SVWE,Divers: 3,D3,,L1,,5:5,,,Nick Pfister,,,,
+PFVF4_SVWE,Divers: 4,,,,,,,,,,,,
+PFVF4_SVWE,Divers: 5,,,,,,,,,,,,
+PFVF4_SVWE,Low Q Chance For: 1,D1,,L1,,5:5,,Gezogen,,Standart,0.1,,
+PFVF4_SVWE,Low Q Chance For: 2,D1,,L1,,5:5,,Handgelenk,Luca Fankhauser,Auslösung,0.2,,
+PFVF4_SVWE,Low Q Chance For: 3,D1,,L2,,5:5,,Direkt,Gustav Svensson,Festsetzen,0.1,,
+PFVF4_SVWE,Low Q Chance For: 4,D1,,L2,,5:5,,Gezogen,Jan Ewald,Festsetzen,0.2,,
+PFVF4_SVWE,Low Q Chance For: 5,D1,,L3,,5:5,,Gezogen,Jan Ewald,Konter,0.1,,
+PFVF4_SVWE,Low Q Chance For: 6,D2,,L3,,5:5,,Handgelenk,Jan Ewald,Konter,0.1,,
+PFVF4_SVWE,Low Q Chance For: 7,D2,,L2,,5:5,,Gezogen,Gustav Svensson,Festsetzen,0.1,,
+PFVF4_SVWE,Low Q Chance For: 8,D2,,L1,,5:5,,Gezogen,Martin Mosimann,Festsetzen,0.2,,
+PFVF4_SVWE,Low Q Chance For: 9,D3,,L2,,5:5,,Gezogen,Simon Steiner,Festsetzen,0.2,,
+PFVF4_SVWE,Low Q Chance For: 10,D3,,L2,,5:5,,Gezogen,Gustav Svensson,Konter,0.2,,
+PFVF4_SVWE,Low Q Chance For: 11,D3,,L1,,5:5,,Gezogen,Matteo Steiner,Auslösung,0.2,,
+PFVF4_SVWE,Low Q Chance For: 12,D3,,L2,,5:5,,Gezogen,Thomas Gfeller,Standart,0.2,,
+PFVF4_SVWE,PP1: 1,,,,,,,,,,,,
+PFVF4_SVWE,PP1: 2,"D2, D2",,"L3, L3",,"5:5, 5:5",,Direkt,,"Auslösung, Nachsetzen",0.3,,
+PFVF4_SVWE,PP1: 3,,,,,,,,,,,,
+PFVF4_SVWE,Mid Q Chance Against: 1,D1,,L3,,5:5,,Direkt,,Konter,0.3,,
+PFVF4_SVWE,Mid Q Chance Against: 2,D2,,L2,,5:5,,Gezogen,,Nachsetzen,0.3,,
+PFVF4_SVWE,Mid Q Chance Against: 3,D2,,L3,,5:5,,Handgelenk,,Konter,0.3,,
+PFVF4_SVWE,Mid Q Chance Against: 4,D2,,L1,,5:5,,Handgelenk,,Konter,0.3,,
+PFVF4_SVWE,Mid Q Chance Against: 5,D2,,L3,,5:5,,Direkt,,Festsetzen,0.4,,
+PFVF4_SVWE,Mid Q Chance Against: 6,D2,,"L2, L2",,5:5,,Direkt,,Auslösung,0.4,,
+PFVF4_SVWE,Mid Q Chance Against: 7,D3,,L1,,5:5,,Direkt,,Festsetzen,0.3,,
+PFVF4_SVWE,Penalty: 1,,,,,,,,,,,,
+PFVF4_SVWE,Mid Q Chance For: 1,D1,,L2,,5:5,,Handgelenk,Simon Steiner,Konter,0.4,,
+PFVF4_SVWE,Mid Q Chance For: 2,D2,,L3,,5:5,,Direkt,,Nachsetzen,0.3,,
+PFVF4_SVWE,High Q Chance Against: 1,D2,,L3,,5:5,,Volley,,Auslösung,0.5,,
+PFVF4_SVWE,Pot + Chance Against: 1,D3,,L2,,5:5,,Volley,,Auslösung,0.5,,
+PFVF4_SVWE,Pot + Chance Against: 2,D3,,L2,,5:5,,Direkt,,Auslösung,0.5,,
+PFVF4_SVWE,6:5: 1,,,,,,,,,,,,
