@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 from src.tabs.game_overview import render_game_overview_tab
 from src.tabs.kpi import render_kpi_tab
 from src.tabs.gameplan import render_gameplan_tab
