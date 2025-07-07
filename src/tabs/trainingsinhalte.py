@@ -55,11 +55,16 @@ def render_filter_panel(df):
 
     start_date, end_date = st.sidebar.date_input(
         "Zeitraum wählen",
-        value=[df["Datum"].min(), df["Datum"].max()]
+        value=[df["Datum"].min(), df["Datum"].max()],
+        key="filter_zeitraum"
     )
 
-    selected_inhalte = st.sidebar.multiselect("Inhalte filtern", options=INHALTE_LISTE, default=INHALTE_LISTE)
-    selected_spielsituationen = st.sidebar.multiselect("Spielsituationen filtern", options=SPIELSITUATION_LISTE, default=SPIELSITUATION_LISTE)
+    selected_inhalte = st.sidebar.multiselect(
+        "Inhalte filtern", options=INHALTE_LISTE, default=INHALTE_LISTE, key="filter_inhalte"
+    )
+    selected_spielsituationen = st.sidebar.multiselect(
+        "Spielsituationen filtern", options=SPIELSITUATION_LISTE, default=SPIELSITUATION_LISTE, key="filter_spielsituationen"
+    )
 
     if not pd.api.types.is_datetime64_any_dtype(df["Datum"]):
         df["Datum"] = pd.to_datetime(df["Datum"])
@@ -89,26 +94,28 @@ def render_filter_panel(df):
 def render_trainingsinhalte_tab():
     st.header("📋 Trainingsinhalte erfassen")
 
-    datum = st.date_input("Datum des Trainings", value=date.today())
+    datum = st.date_input("Datum des Trainings", value=date.today(), key="input_datum")
 
     inhalte = st.multiselect(
         "Inhalte des Trainings",
-        INHALTE_LISTE
+        INHALTE_LISTE,
+        key="input_inhalte"
     )
 
     spielsituation = st.multiselect(
         "Spielsituation",
-        SPIELSITUATION_LISTE
+        SPIELSITUATION_LISTE,
+        key="input_spielsituation"
     )
 
-    erkenntnisse = st.text_area("Erkenntnisse aus dem Training")
+    erkenntnisse = st.text_area("Erkenntnisse aus dem Training", key="input_erkenntnisse")
 
-    offene_uebungen_input = st.text_input("Offene Übungen (Komma-getrennt)")
+    offene_uebungen_input = st.text_input("Offene Übungen (Komma-getrennt)", key="input_offene_uebungen")
     offene_uebungen = [tag.strip() for tag in offene_uebungen_input.split(",") if tag.strip()]
 
-    massnahmen = st.text_area("Maßnahmen für das nächste Training")
+    massnahmen = st.text_area("Maßnahmen für das nächste Training", key="input_massnahmen")
 
-    if st.button("Eintrag speichern"):
+    if st.button("Eintrag speichern", key="button_speichern"):
         neuer_eintrag = {
             "Datum": datum,
             "Inhalte": ", ".join(inhalte),
@@ -133,10 +140,10 @@ def render_trainingsinhalte_tab():
         # Löschfunktion für gefilterte Tabelle
         index_to_delete = st.selectbox(
             "Eintrag zum Löschen auswählen (Index)",
-            options=filtered_df.index.tolist()
+            options=filtered_df.index.tolist(),
+            key="select_delete_index"
         )
-        if st.button("Ausgewählten Eintrag löschen"):
-            # Löschen aus dem globalen DataFrame
+        if st.button("Ausgewählten Eintrag löschen", key="button_delete"):
             st.session_state.trainings = st.session_state.trainings.drop(index=index_to_delete).reset_index(drop=True)
             st.success(f"Eintrag {index_to_delete} wurde gelöscht!")
             st.experimental_rerun()
