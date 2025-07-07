@@ -1,54 +1,40 @@
 import pandas as pd
-import re
 
-# Liste der neuen Aktionen direkt hier definiert
-NEUE_AKTIONEN = [
-    "Zone-Exits For", "Zone-Exits Against",
-    "Nachsetzen For", "Nachsetzen Against",
-    "Pressing For", "Pressing Against",
-    "ZOE For gg. Pressing", "ZOE Against gg. Pressing"
+print("🧠 calculate_spielsituationen() wurde neu geladen")
+
+AKTIONEN = [
+    "Zone-Exits For",
+    "Zone-Exits Against",
+    "Nachsetzen For",
+    "Nachsetzen Against",
+    "Pressing For",
+    "Pressing Against",
+    "ZOE For gg. Pressing",
+    "ZOE Against gg. Pressing"
 ]
 
 def calculate_spielsituationen(df: pd.DataFrame) -> pd.DataFrame:
-    # Vorbereitung
     df = df.copy()
     df = df[df["Action"].notna()]
 
-    # Ergebnis-Speicher
     result = []
 
-    for aktion in NEUE_AKTIONEN:
-        pattern = rf"{re.escape(aktion)}:"
+    for aktion in AKTIONEN:
+        count = df["Action"].str.startswith(aktion).sum()
+        aktionstyp = aktion.split(" For")[0].split(" Against")[0].strip()
+
         is_for = "For" in aktion
-        bewertungsspalte = "ZOE_For" if is_for else "ZOE_Against"
+        is_against = "Against" in aktion
 
-        # Filtern der betreffenden Zeilen
-        mask = df["Action"].str.contains(pattern, na=False)
-        relevant_rows = df[mask]
-
-        # Zählung
-        good = (relevant_rows[bewertungsspalte] == "Good").sum()
-        bad = (relevant_rows[bewertungsspalte] == "Bad").sum()
-
-        # Differenzberechnung
-        diff = good - bad
-
-        # Aktionstyp extrahieren
-        aktionstyp = aktion.split(" For")[0].split(" Against")[0]
-
-        # Eintrag erstellen
-        eintrag = {
+        result.append({
             "Aktion": aktion,
             "Aktionstyp": aktionstyp,
-            "For Good": good if is_for else 0,
-            "For Bad": bad if is_for else 0,
-            "Against Good": good if not is_for else 0,
-            "Against Bad": bad if not is_for else 0,
-            "Diff For": diff if is_for else 0,
-            "Diff Against": diff if not is_for else 0,
-        }
-        result.append(eintrag)
+            "For Good": count if is_for else 0,
+            "For Bad": 0,
+            "Against Good": count if is_against else 0,
+            "Against Bad": 0,
+            "Diff For": count if is_for else 0,
+            "Diff Against": count if is_against else 0,
+        })
 
-    # In DataFrame umwandeln
-    result_df = pd.DataFrame(result)
-    return result_df
+    return pd.DataFrame(result)
