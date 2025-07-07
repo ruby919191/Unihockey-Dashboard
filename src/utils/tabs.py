@@ -8,6 +8,7 @@ def create_tabs(selected_season, ausgewählte_saisons):
         "🎯 Chancen",
         "🥅 Tore",
         "📥 Zone-Entries",
+        "📘 Spielsituationen"
     ]
     if selected_season != "Divers":
         tab_names.append("🧍‍♂️ Player Data")

@@ -17,6 +17,7 @@ from src.tabs.player_data import render_player_data_tab
 from src.tabs.shotmaps import render_shotmaps_tab
 from src.tabs.season_summary import render_season_summary_tab
 from src.tabs.saisonverlauf import render_saisonverlauf_tab  # Für Untertab im Dashboard
+from src.tabs.spielsituationen import render_spielsituationen_tab
 
 
 
