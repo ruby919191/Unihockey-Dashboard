@@ -117,3 +117,31 @@ def count_chances_by_tactical_situation_detailed(df):
     )
 
     return df_result
+
+# ✅ Jetzt separat und korrekt: PP Shot Against
+def count_pp_shots_against(df):
+    df = df[df["Action"].notna()]
+    subset = df[df["Action"].str.contains("PP Shot Against", na=False)]
+
+    count = len(subset)
+    xg_series = pd.to_numeric(subset.get("XG", pd.Series(dtype=float)), errors="coerce")
+    xg = xg_series.sum(skipna=True)
+
+    on = (subset["Schussmetrik"] == "Auf Tor").sum()
+    off = (subset["Schussmetrik"] == "Neben Tor").sum()
+    blocked = (subset["Schussmetrik"] == "Geblockt").sum()
+
+    pct = lambda x: round(x / count * 100, 1) if count else 0
+
+    df_summary = pd.DataFrame([[
+        "PP Shot", count, round(xg, 2), on, pct(on), off, pct(off), blocked, pct(blocked)
+    ]], columns=[
+        "Qualität", "Anzahl", "xG", "Auf Tor", "% Auf Tor",
+        "Neben Tor", "% Neben Tor", "Geblockt", "% Geblockt"
+    ])
+
+    total = pd.DataFrame([[
+        "Total", count, round(xg, 2), on, "", off, "", blocked, ""
+    ]], columns=df_summary.columns)
+
+    return pd.concat([df_summary, total], ignore_index=True)
