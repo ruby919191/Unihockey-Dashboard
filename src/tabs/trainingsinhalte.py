@@ -61,10 +61,15 @@ def render_filter_panel(df):
     selected_inhalte = st.sidebar.multiselect("Inhalte filtern", options=INHALTE_LISTE, default=INHALTE_LISTE)
     selected_spielsituationen = st.sidebar.multiselect("Spielsituationen filtern", options=SPIELSITUATION_LISTE, default=SPIELSITUATION_LISTE)
 
-    # Filter anwenden
+    if not pd.api.types.is_datetime64_any_dtype(df["Datum"]):
+        df["Datum"] = pd.to_datetime(df["Datum"])
+
+    start_ts = pd.Timestamp(start_date)
+    end_ts = pd.Timestamp(end_date)
+
     filtered_df = df[
-        (df["Datum"] >= pd.to_datetime(start_date)) &
-        (df["Datum"] <= pd.to_datetime(end_date))
+        (df["Datum"] >= start_ts) &
+        (df["Datum"] <= end_ts)
     ]
 
     # Inhalte filtern (Kommagetrennt)
