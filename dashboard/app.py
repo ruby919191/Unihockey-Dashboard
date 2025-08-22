@@ -20,8 +20,7 @@ from src.tabs.shotmaps import render_shotmaps_tab
 from src.tabs.season_summary import render_season_summary_tab
 from src.tabs.saisonverlauf import render_saisonverlauf_tab  # Für Untertab im Dashboard
 from src.tabs.spielsituationen import render_spielsituationen_tab
-from src.tabs.trainingsinhalte import render_trainingsinhalte_tab
-from src.tabs.after_action_review import render_aar_tab  # Neu importieren
+
 
 # 🔧 Utils importieren
 from src.utils.render_trends import render_trends_page
@@ -50,7 +49,7 @@ seiten = {
         team_for_name=team_for_name,
         team_against_name=team_against_name
     ),
-    "📝 After Action Review": lambda: render_aar_tab(),
+
 }
 
 if not ist_einzelspiel:
