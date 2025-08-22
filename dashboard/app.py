@@ -48,7 +48,6 @@ seiten = {
         team_for_name=team_for_name,
         team_against_name=team_against_name
     ),
-    "📋 Trainingsinhalte": lambda: render_trainingsinhalte_tab(),
     "📝 After Action Review": lambda: render_aar_tab(),
 }
 
