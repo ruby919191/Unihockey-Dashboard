@@ -3,6 +3,8 @@ import os
 import sys
 from PIL import Image
 
+# Test
+
 # 📦 Projektpfad ergänzen (damit Imports funktionieren)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
