@@ -10,10 +10,10 @@ def count_goals_by_situation(df, team_name, opponent_name, situation_for, situat
     df_against = df[df["Nummerische Spielsituation"] == situation_against]
 
     # Tore für dein Team
-    goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_name}")].shape[0]
+    goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_name}", na=False)].shape[0]
 
     # Tore für Gegner
-    goals_against = df_against[df_against["Action"].str.startswith(f"Tor {opponent_name}")].shape[0]
+    goals_against = df_against[df_against["Action"].str.startswith(f"Tor {opponent_name}", na=False)].shape[0]
 
     return goals_for, goals_against
 
@@ -38,8 +38,8 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     fenwick_pct = round((fenwick_for / (fenwick_for + fenwick_against)) * 100, 1) if (fenwick_for + fenwick_against) > 0 else 0
 
     # 5:5 Tore
-    df_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}") & (df["Nummerische Spielsituation"] == "5:5")]
-    df_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}") & (df["Nummerische Spielsituation"] == "5:5")]
+    df_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}", na=False) & (df["Nummerische Spielsituation"] == "5:5")]
+    df_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}", na=False) & (df["Nummerische Spielsituation"] == "5:5")]
     goals_for = df_goals_for.shape[0]
     goals_against = df_goals_against.shape[0]
     goal_diff = goals_for - goals_against
@@ -51,12 +51,12 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     five_six_goals_for, five_six_goals_against = count_goals_by_situation(df, team_name, opponent_name, "5:6", "5:6")
 
     # Spezialtore total (nicht 5:5)
-    special_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}") & (df["Nummerische Spielsituation"] != "5:5")].shape[0]
-    total_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}")].shape[0]
+    special_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}", na=False) & (df["Nummerische Spielsituation"] != "5:5")].shape[0]
+    total_goals_for = df[df["Action"].str.startswith(f"Tor {team_name}", na=False)].shape[0]
     special_pct_for = round((special_goals_for / total_goals_for) * 100, 1) if total_goals_for > 0 else 0
 
-    special_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}") & (df["Nummerische Spielsituation"] != "5:5")].shape[0]
-    total_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}")].shape[0]
+    special_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}", na=False) & (df["Nummerische Spielsituation"] != "5:5")].shape[0]
+    total_goals_against = df[df["Action"].str.startswith(f"Tor {opponent_name}", na=False)].shape[0]
     special_pct_against = round((special_goals_against / total_goals_against) * 100, 1) if total_goals_against > 0 else 0
 
     # Effizienz
