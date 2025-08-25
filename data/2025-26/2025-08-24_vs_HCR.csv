@@ -1,0 +1,227 @@
+Spiel,Action,Drittel,Linien For,Nachsetzen,Nummerische Spielsituation,Schusslabels,Schussmetrik,Spieler Tigers,Spieler Tigers 2,Taktische Spielsituation,XG,ZOE_For,ZOE_Gegner
+2025-08-24_HCR_A,High Q Chance Against: 1,D1,L2,,5:5,,Auf Tor,,,Nachsetzen,0.60,,
+2025-08-24_HCR_A,High Q Chance Against: 2,D1,L2,,5:5,,Neben Tor,,,Konter,0.55,,
+2025-08-24_HCR_A,High Q Chance Against: 3,D1,L2,,5:5,,Neben Tor,,,Konter,0.70,,
+2025-08-24_HCR_A,High Q Chance Against: 4,D3,L1,,5:5,,Neben Tor,,,Festsetzen,0.70,,
+2025-08-24_HCR_A,High Q Chance Against: 5,D3,L2,,5:5,,Auf Tor,,,Zone-Exits,0.45,,
+2025-08-24_HCR_A,High Q Chance Against: 6,D3,L1,,5:5,,Neben Tor,,,Standart,0.40,,
+2025-08-24_HCR_A,High Q Chance Against: 7,D3,L1,,5:5,,Neben Tor,,,Konter,0.50,,
+2025-08-24_HCR_A,High Q Chance For: 1,D1,L2,,5:5,,Geblockt,Matteo Steiner,Thomas Gfeller,Konter,0.40,,
+2025-08-24_HCR_A,High Q Chance For: 2,D1,L1,,5:5,,Auf Tor,Janis Lauber,Kevin Kropf,Festsetzen,0.50,,
+2025-08-24_HCR_A,High Q Chance For: 3,D1,L2,,5:5,,Neben Tor,Matteo Steiner,Alexander Hedlund,Konter,0.50,,
+2025-08-24_HCR_A,High Q Chance For: 4,D3,L2,,5:5,,Auf Tor,Luca Fankhauser,Thomas Gfeller,Konter,0.45,,
+2025-08-24_HCR_A,High Q Chance For: 5,D3,L2,,5:5,,"Auf Tor, Neben Tor",Luca Fankhauser,Matteo Steiner,Zone-Exits,0.60,,
+2025-08-24_HCR_A,High Q Chance For: 6,D3,L2,,5:5,,Neben Tor,Matteo Steiner,Alexander Hedlund,Nachsetzen,0.55,,
+2025-08-24_HCR_A,High Q Chance For: 7,D3,L2,,5:5,,Auf Tor,Tim Glücki,Matteo Steiner,Konter,0.75,,
+2025-08-24_HCR_A,High Q Chance For: 8,D2,L2,,5:5,,Auf Tor,Janis Lauber,Alexander Hedlund,Konter,0.40,,
+2025-08-24_HCR_A,Low Q Chance Against: 1,D2,L3,,5:5,,Geblockt,,,Standart,0.15,,
+2025-08-24_HCR_A,Low Q Chance Against: 2,D1,L3,,5:5,,Geblockt,,,Festsetzen,0.40,,
+2025-08-24_HCR_A,Low Q Chance Against: 3,D1,L2,,5:5,,Geblockt,,,Auslösung,0.15,,
+2025-08-24_HCR_A,Low Q Chance Against: 4,D1,L2,,5:5,,Geblockt,,,Festsetzen,0.15,,
+2025-08-24_HCR_A,Low Q Chance Against: 5,D2,L1,,5:5,,Auf Tor,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 6,D2,L3,,5:5,,Auf Tor,,,Konter,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 7,D2,L2,,5:5,,Geblockt,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 8,D2,L3,,5:5,,Geblockt,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 9,D2,L1,,5:5,,Geblockt,,,Festsetzen,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 10,D2,L3,,5:5,,Auf Tor,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 11,D2,L2,,5:5,,Neben Tor,,,Auslösung,0.15,,
+2025-08-24_HCR_A,Low Q Chance Against: 12,D3,L2,,5:5,,Neben Tor,,,Auslösung,0.20,,
+2025-08-24_HCR_A,Low Q Chance Against: 13,D3,L3,,5:5,,Neben Tor,,,Festsetzen,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 14,D3,L2,,5:5,,Geblockt,,,Festsetzen,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 15,D3,L2,,5:5,,Neben Tor,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 16,D3,L2,,5:5,,Neben Tor,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance Against: 17,D3,L3,,5:5,,Neben Tor,,,Konter,0.25,,
+2025-08-24_HCR_A,Low Q Chance For: 1,D1,L3,,5:5,,Geblockt,Christian Stucki,Maurice Aebersold,Konter,0.25,,
+2025-08-24_HCR_A,Low Q Chance For: 2,D1,L2,,5:5,,Geblockt,Steiner Luca,Thomas Gfeller,Standart,0.15,,
+2025-08-24_HCR_A,Low Q Chance For: 3,D1,L3,,5:5,,Geblockt,Christian Stucki,Maurice Aebersold,Auslösung,0.20,,
+2025-08-24_HCR_A,Low Q Chance For: 4,D1,L2,,5:5,,Auf Tor,Thomas Gfeller,Matteo Steiner,Festsetzen,0.10,,
+2025-08-24_HCR_A,Low Q Chance For: 5,D2,L2,,5:5,,Auf Tor,Thomas Gfeller,Alexander Hedlund,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance For: 6,D2,L3,,5:5,,Neben Tor,Steiner Luca,Seya Schwarz,Konter,0.10,,
+2025-08-24_HCR_A,Low Q Chance For: 7,D2,L3,,5:5,,Geblockt,Christian Stucki,Maurice Aebersold,Festsetzen,0.10,,
+2025-08-24_HCR_A,Low Q Chance For: 8,D3,L2,,5:5,,Geblockt,Matteo Steiner,,Festsetzen,0.15,,
+2025-08-24_HCR_A,Low Q Chance For: 9,D3,L2,,5:5,,Geblockt,Alexander Hedlund,Matteo Steiner,Auslösung,0.15,,
+2025-08-24_HCR_A,Low Q Chance For: 10,D3,L2,,5:5,,Geblockt,Alexander Hedlund,Gian Mühlemann,Auslösung,0.15,,
+2025-08-24_HCR_A,Low Q Chance For: 11,,L3,,5:5,,Geblockt,Nick Pfister,Steiner Luca,Festsetzen,0.15,,
+2025-08-24_HCR_A,Low Q Chance For: 12,D3,L2,,5:5,,Geblockt,,,Auslösung,0.10,,
+2025-08-24_HCR_A,Low Q Chance For: 13,D3,L2,,5:5,,Auf Tor,Matteo Steiner,,,0.20,,
+2025-08-24_HCR_A,Low Q Chance For: 14,D3,L3,,5:5,,Auf Tor,Steiner Luca,Christian Stucki,Auslösung,0.20,,
+2025-08-24_HCR_A,Low Q Chance For: 15,D3,L3,,5:5,,Geblockt,Christian Stucki,Steiner Luca,Auslösung,0.15,,
+2025-08-24_HCR_A,Low Q Chance For: 16,D3,L2,,5:5,,Neben Tor,Thomas Gfeller,,Standart,0.10,,
+2025-08-24_HCR_A,Low Q Chance For: 17,D3,L1,,5:5,,Auf Tor,Tim Glücki,Matteo Steiner,Festsetzen,0.10,,
+2025-08-24_HCR_A,Mid Q Chance Against: 1,D1,L1,,5:5,,Auf Tor,,,Auslösung,0.20,,
+2025-08-24_HCR_A,Mid Q Chance Against: 2,D1,L2,,5:5,,Auf Tor,,,Zone-Exits,0.35,,
+2025-08-24_HCR_A,Mid Q Chance Against: 3,D1,L3,,5:5,,Neben Tor,,,Auslösung,0.30,,
+2025-08-24_HCR_A,Mid Q Chance Against: 4,D1,L1,,5:5,,Geblockt,,,Standart,0.15,,
+2025-08-24_HCR_A,Mid Q Chance Against: 5,D1,L3,,5:5,,Auf Tor,,,Konter,0.20,,
+2025-08-24_HCR_A,Mid Q Chance Against: 6,D1,L1,,5:5,,Geblockt,,,Festsetzen,0.10,,
+2025-08-24_HCR_A,Mid Q Chance Against: 7,D2,L1,,5:5,,Auf Tor,,,Standart,0.30,,
+2025-08-24_HCR_A,Mid Q Chance Against: 8,D3,L3,,5:5,,Auf Tor,,,Konter,0.40,,
+2025-08-24_HCR_A,Mid Q Chance For: 1,D1,L1,,5:5,,Auf Tor,Gustav Svensson,,Festsetzen,,,
+2025-08-24_HCR_A,Mid Q Chance For: 2,D1,L1,,5:5,,Geblockt,Steiner Simon,Janis Lauber,Nachsetzen,0.35,,
+2025-08-24_HCR_A,Mid Q Chance For: 3,D1,L3,,5:5,,Geblockt,Seya Schwarz,Gian Mühlemann,Auslösung,0.15,,
+2025-08-24_HCR_A,Mid Q Chance For: 4,D1,L3,,5:5,,Neben Tor,Seya Schwarz,Maurice Aebersold,Auslösung,0.25,,
+2025-08-24_HCR_A,Mid Q Chance For: 5,D2,L2,,5:5,,Auf Tor,Thomas Gfeller,Matteo Steiner,Festsetzen,0.20,,
+2025-08-24_HCR_A,Mid Q Chance For: 6,D2,L1,,5:5,,Neben Tor,Janis Lauber,Gustav Svensson,Auslösung,0.25,,
+2025-08-24_HCR_A,Mid Q Chance For: 7,D2,L2,,5:5,,Auf Tor,Matteo Steiner,Alexander Hedlund,Konter,0.45,,
+2025-08-24_HCR_A,Mid Q Chance For: 8,D3,L2,,5:5,,Neben Tor,Matteo Steiner,Janis Lauber,Auslösung,0.30,,
+2025-08-24_HCR_A,Mid Q Chance For: 9,D3,L3,,5:5,,Neben Tor,Seya Schwarz,Nick Pfister,Konter,0.40,,
+2025-08-24_HCR_A,Mid Q Chance For: 10,D3,L2,,5:5,,Auf Tor,Matteo Steiner,,Standart,0.30,,
+2025-08-24_HCR_A,Mid Q Chance For: 11,D3,L2,,5:5,,Neben Tor,Alexander Hedlund,Matteo Steiner,Auslösung,0.45,,
+2025-08-24_HCR_A,Mid Q Chance For: 12,D3,L2,,5:5,,Geblockt,Matteo Steiner,Janis Lauber,Nachsetzen,0.25,,
+2025-08-24_HCR_A,Mid Q Chance For: 13,D3,L1,,5:5,,Neben Tor,Thomas Gfeller,Kevin Kropf,Konter,0.45,,
+2025-08-24_HCR_A,Nachsetzen For: 1,D1,L2,Good,5:5,,Geblockt,,,Nachsetzen,,,
+2025-08-24_HCR_A,Nachsetzen For: 2,D1,L2,Bad,5:5,,,,,Nachsetzen,,,
+2025-08-24_HCR_A,Nachsetzen For: 3,D1,L2,Good,5:5,,,,,Nachsetzen,,Bad,
+2025-08-24_HCR_A,Nachsetzen For: 4,D2,L1,Bad,5:5,,,,,Nachsetzen,,Bad,
+2025-08-24_HCR_A,Nachsetzen For: 5,D2,L2,Bad,5:5,,,,,Nachsetzen,,Bad,
+2025-08-24_HCR_A,Nachsetzen For: 6,D3,L3,Good,5:5,,,,,Nachsetzen,,Bad,
+2025-08-24_HCR_A,Nachsetzen For: 7,D2,L1,Good,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 8,D2,L2,Good,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 9,D2,L3,,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 10,D3,L3,,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 11,D3,L3,,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 12,D3,L3,,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 13,D3,L2,,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Nachsetzen For: 14,D3,L1,,5:5,,,,,Nachsetzen,,Good,
+2025-08-24_HCR_A,Pressing For: 1,D1,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 2,D1,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 3,D1,L3,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 4,D2,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 5,D2,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 6,D3,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 7,D3,L1,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 8,D3,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 9,D3,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 10,D3,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 11,D3,L2,,5:5,,,,,,,Good,
+2025-08-24_HCR_A,Pressing For: 12,D3,L2,,5:5,,,,,,,Bad,
+2025-08-24_HCR_A,Pressing For: 13,D3,L2,,5:5,,,,,,,Bad,
+2025-08-24_HCR_A,Pressing For: 14,D3,L2,,5:5,,,,,,,Bad,
+2025-08-24_HCR_A,Tor Gegner: 1,D1,L1,,5:5,,,,,Konter,0.50,,
+2025-08-24_HCR_A,Tor Gegner: 2,D2,L1,,5:5,,,,,Nachsetzen,0.45,,
+2025-08-24_HCR_A,Tor Tigers: 1,D1,L1,,5:5,,,Janis Lauber,Matteo Steiner,Pressing,0.65,,
+2025-08-24_HCR_A,Tor Tigers: 2,D3,L3,,5:5,,,Christian Stucki,Nick Pfister,Festsetzen,0.55,,
+2025-08-24_HCR_A,Tor Tigers: 3,D3,L3,,5:5,,,Christian Stucki,Nick Pfister,Konter,0.60,,
+2025-08-24_HCR_A,ZOE For: 1,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 2,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 3,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 4,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 5,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 6,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 7,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 8,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 9,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 10,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 11,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 12,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 13,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 14,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 15,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 16,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 17,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 18,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 19,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 20,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 21,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 22,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 23,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 24,D1,L1,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 25,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 26,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 27,D1,L3,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 28,D1,L3,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 29,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 30,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 31,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 32,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 33,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 34,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 35,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 36,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 37,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 38,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 39,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 40,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 41,D1,L1,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 42,D1,L3,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 43,D1,L3,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 44,D1,L2,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 45,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 46,D1,L3,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 47,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 48,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 49,D1,L2,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 50,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 51,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE For: 52,D1,L3,,5:5,,,,,Auslösung,,Bad,
+2025-08-24_HCR_A,ZOE For: 53,D1,L1,,5:5,,,,,Auslösung,,Good,
+2025-08-24_HCR_A,ZOE Gegner: 1,D1,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 2,D1,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 3,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 4,D1,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 5,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 6,D1,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 7,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 8,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 9,D1,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 10,D1,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 11,D1,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 12,D1,L3,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 13,D1,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 14,D1,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 15,D1,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 16,D1,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 17,D1,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 18,D1,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 19,D1,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 20,D1,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 21,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 22,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 23,D1,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 24,D1,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 25,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 26,D3,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 27,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 28,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 29,D3,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 30,D3,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 31,D3,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 32,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 33,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 34,D3,L3,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 35,D3,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 36,D3,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 37,D3,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 38,D3,L3,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 39,D3,L2,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 40,D3,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 41,D3,L1,,5:5,,,,,Auslösung,,,Bad
+2025-08-24_HCR_A,ZOE Gegner: 42,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 43,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 44,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 45,D3,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 46,D3,L3,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 47,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 48,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 49,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 50,D3,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 51,D3,L1,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,ZOE Gegner: 52,D3,L2,,5:5,,,,,Auslösung,,,Good
+2025-08-24_HCR_A,Zone-Exits For: 1,D1,L1,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 2,D1,L1,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 3,D1,L2,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 4,D1,L2,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 5,D2,L2,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 6,D2,L1,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 7,D2,L1,,5:5,,,,,Zone-Exits,,Good,
+2025-08-24_HCR_A,Zone-Exits For: 8,D2,L1,,5:5,,,,,Zone-Exits,,Good,
+2025-08-24_HCR_A,Zone-Exits For: 9,D2,L1,,5:5,,,,,Zone-Exits,,Good,
+2025-08-24_HCR_A,Zone-Exits For: 10,D2,L1,,5:5,,,,,Zone-Exits,,Good,
+2025-08-24_HCR_A,Zone-Exits For: 11,D2,L1,,5:5,,,,,Zone-Exits,,Good,
+2025-08-24_HCR_A,Zone-Exits For: 12,D3,L1,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 13,D3,L1,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 14,D3,L1,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 15,D3,L2,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 16,D3,L2,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 17,D3,L2,,5:5,,,,,Zone-Exits,,Bad,
+2025-08-24_HCR_A,Zone-Exits For: 18,D3,L1,,5:5,,,,,Zone-Exits,,Bad,
