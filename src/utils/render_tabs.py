@@ -10,7 +10,7 @@ from src.tabs.player_data import render_player_data_tab
 from src.tabs.shotmaps import render_shotmaps_tab
 from src.tabs.season_summary import render_season_summary_tab
 from src.tabs.saisonverlauf import render_saisonverlauf_tab  # neu importieren
-from src.tabs.spielsituationen import render_spielsituationen_tab
+
 
 
 def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_saisons, team_for_name, team_against_name):
@@ -21,7 +21,6 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
         "🎯 Chancen", 
         "🥅 Tore", 
         "📥 Zone-Entries",
-        "📘 Spielsituationen",
     ]
     if selected_season != "Divers":
         tab_names.append("🧍‍♂️ Player Data")
@@ -56,8 +55,6 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
     with tabs[tab_names.index("📥 Zone-Entries")]:
         render_zone_entries_tab(df, team_for_name, team_against_name)
 
-    with tabs[tab_names.index("📘 Spielsituationen")]:  
-        render_spielsituationen_tab(df, selected_season)
 
 
     if selected_season != "Divers":
