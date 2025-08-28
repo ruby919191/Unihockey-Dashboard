@@ -2,7 +2,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from src.tabs.game_overview import render_game_overview_tab
 from src.tabs.kpi import render_kpi_tab
-from src.tabs.gameplan import render_gameplan_tab
 from src.tabs.chancen import render_chancen_tab
 from src.tabs.tore import render_tore_tab
 from src.tabs.zone_entries import render_zone_entries_tab
@@ -17,7 +16,6 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
     tab_names = [
         "📈 Game-Overview", 
         "📊 KPIs", 
-        "📘 Gameplan", 
         "🎯 Chancen", 
         "🥅 Tore", 
         "📥 Zone-Entries",
@@ -43,9 +41,6 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
     with tabs[tab_names.index("📊 KPIs")]:
         render_kpi_tab(df, team_for_name, team_against_name)
 
-    with tabs[tab_names.index("📘 Gameplan")]:
-        render_gameplan_tab(df)
-
     with tabs[tab_names.index("🎯 Chancen")]:
         render_chancen_tab(df, team_for_name, team_against_name)
 
@@ -54,8 +49,6 @@ def render_all_tabs(df, all_df, selected_game, selected_season, ausgewählte_sai
 
     with tabs[tab_names.index("📥 Zone-Entries")]:
         render_zone_entries_tab(df, team_for_name, team_against_name)
-
-
 
     if selected_season != "Divers":
         with tabs[tab_names.index("🧍‍♂️ Player Data")]:
