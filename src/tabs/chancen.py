@@ -16,36 +16,102 @@ from src.analysis.chances_against import (
     count_pp_shots_against as count_pp_shots_against   
 )
 
+
 def render_chancen_tab(df, team_for_name, team_against_name):
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader(f"🟢 Chancen {team_for_name}")
-        st.dataframe(chances_for_quality(df), use_container_width=True)
-    with col2:
-        st.subheader(f"🔴 Chancen {team_against_name}")
-        st.dataframe(chances_against_quality(df), use_container_width=True)
+    # CSS für einheitliches Table-Styling
+    st.markdown(
+        """
+        <style>
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        .styled-table th {
+            background-color: #f0f0f0;
+            padding: 8px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+        .styled-table td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .styled-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-    st.subheader(f"📊 Chancen nach Linie (For - {team_for_name})")
-    st.dataframe(chances_for_line(df), use_container_width=True)
+    # Filter-Auswahl
+    option = st.selectbox(
+        "🔎 Wähle eine KPI-Kategorie:",
+        [
+            "Chancen",
+            "Chancen nach Linien",
+            "Chancen nach Drittel",
+            "Chancen nach Spielsituation",
+            "PP Chancen"
+        ],
+        index=0,  # Default = Erste Kategorie
+        key="chancen_selectbox"
+    )
 
-    st.subheader(f"📊 Chancen nach Linie (Against - {team_against_name})")
-    st.dataframe(chances_against_line(df), use_container_width=True)
+    # Helper-Funktion für Boxen
+    def table_box(title, df, color="#f5f5f5"):
+        html_table = df.to_html(classes="styled-table")
+        st.markdown(
+            f"""
+            <div style="
+                border-radius:10px;
+                padding:15px;
+                margin-bottom:15px;
+                background-color:{color};
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            ">
+                <h4 style="margin-top:0;margin-bottom:10px;">{title}</h4>
+                {html_table}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-    st.subheader(f"📊 Chancen pro Drittel (For - {team_for_name})")
-    st.dataframe(chances_for_period(df), use_container_width=True)
+    # Inhalte je nach Filter
+    if option == "Chancen":
+        col1, col2 = st.columns(2)
+        with col1:
+            table_box(f"🟢 Chancen {team_for_name}", chances_for_quality(df), "#e8f5e9")
+        with col2:
+            table_box(f"🔴 Chancen {team_against_name}", chances_against_quality(df), "#ffebee")
 
-    st.subheader(f"📊 Chancen pro Drittel (Against - {team_against_name})")
-    st.dataframe(chances_against_period(df), use_container_width=True)
+    elif option == "Chancen nach Linien":
+        col1, col2 = st.columns(2)
+        with col1:
+            table_box(f"📊 Chancen nach Linie (For - {team_for_name})", chances_for_line(df))
+        with col2:
+            table_box(f"📊 Chancen nach Linie (Against - {team_against_name})", chances_against_line(df))
 
-    st.subheader(f"📋 Chancen For nach Taktik (5:5 - {team_for_name})")
-    st.dataframe(chances_for_tactics(df), use_container_width=True)
+    elif option == "Chancen nach Drittel":
+        col1, col2 = st.columns(2)
+        with col1:
+            table_box(f"📊 Chancen pro Drittel (For - {team_for_name})", chances_for_period(df))
+        with col2:
+            table_box(f"📊 Chancen pro Drittel (Against - {team_against_name})", chances_against_period(df))
 
-    st.subheader(f"📋 Chancen Against nach Taktik (5:5 - {team_against_name})")
-    st.dataframe(chances_against_tactics(df), use_container_width=True)
+    elif option == "Chancen nach Spielsituation":
+        col1, col2 = st.columns(2)
+        with col1:
+            table_box(f"📋 Chancen For nach Taktik (5:5 - {team_for_name})", chances_for_tactics(df))
+        with col2:
+            table_box(f"📋 Chancen Against nach Taktik (5:5 - {team_against_name})", chances_against_tactics(df))
 
-    st.subheader("🟪 PP Shots For")
-    st.dataframe(count_pp_shots_for(df), use_container_width=True)
-
-    st.subheader("🟪 PP Shots Against")
-    st.dataframe(count_pp_shots_against(df), use_container_width=True)
-
+    elif option == "PP Chancen":
+        col1, col2 = st.columns(2)
+        with col1:
+            table_box("🟪 PP Shots For", count_pp_shots_for(df))
+        with col2:
+            table_box("🟪 PP Shots Against", count_pp_shots_against(df))

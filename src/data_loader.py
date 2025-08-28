@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 data_folder = os.path.join(BASE_DIR, "..", "data")
 
 columns_to_clean = [
-    "Spieler Tigers", "Spieler Tigers 2", "Taktische Spielsituation",
+    "Spieler Tigers", "Spieler Tigers 2" "Schusslabel", "Schussmetrik", "Taktische Spielsituation",
     "Nummerische Spielsituation", "XG", "ZOE For", "ZOE Against",
     "Drittel", "Linien For", "Linien Against"
 ]
@@ -54,6 +54,11 @@ def get_all_games():
                         continue
 
                     df = standardize_columns(df)
+
+                    # 🟢 Action-Spalte NaN-safe machen
+                    if "Action" in df.columns:
+                        df["Action"] = df["Action"].fillna("NA").astype(str)
+
                     df["game"] = os.path.splitext(file)[0]
                     df["season"] = season.strip()
 

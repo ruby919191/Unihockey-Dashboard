@@ -11,7 +11,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 # 📥 Tabs importieren
 from src.tabs.game_overview import render_game_overview_tab
 from src.tabs.kpi import render_kpi_tab
-from src.tabs.gameplan import render_gameplan_tab
 from src.tabs.chancen import render_chancen_tab
 from src.tabs.tore import render_tore_tab
 from src.tabs.zone_entries import render_zone_entries_tab

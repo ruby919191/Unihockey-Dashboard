@@ -35,10 +35,18 @@ def calculate_season_summary(df):
     # Nur numerische Spalten auswählen (ohne season, game)
     numeric_cols = plays_df.select_dtypes(include="number").columns
 
-    # Median und Mean je Saison berechnen nur für numerische Spalten
+    # Median und Mean je Saison berechnen
     median_df = plays_df.groupby("season")[numeric_cols].median().add_suffix(" Median")
     mean_df = plays_df.groupby("season")[numeric_cols].mean().add_suffix(" Mittelwert")
 
     summary_df = pd.concat([median_df, mean_df], axis=1).reset_index()
+
+    # 🔹 Saison sortieren (YYYY-YY -> nach erstem Jahr sortieren)
+    summary_df = summary_df.sort_values("season", key=lambda x: x.str[:4].astype(int)).reset_index(drop=True)
+
+    # 🔹 Relative Veränderung (%) zu Vorsaison
+    for col in summary_df.select_dtypes(include="number").columns:
+        summary_df[col + " Δ%"] = summary_df[col].pct_change() * 100
+        summary_df[col + " Δ%"] = summary_df[col + " Δ%"].round(1)  # auf 1 Nachkommastelle runden
 
     return summary_df

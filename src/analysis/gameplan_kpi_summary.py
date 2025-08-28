@@ -5,9 +5,9 @@ def count_goals_by_situation(df, team_name, opponent_name, situation_for, situat
     Zählt Tore in einer nummerischen Spielsituation, getrennt für team_name und opponent_name.
     Funktioniert für Saison- und Divers-Dateien.
     """
-
     df_for = df[df["Nummerische Spielsituation"] == situation_for]
     df_against = df[df["Nummerische Spielsituation"] == situation_against]
+
 
     # Tore für dein Team
     goals_for = df_for[df_for["Action"].str.startswith(f"Tor {team_name}", na=False)].shape[0]
@@ -94,38 +94,54 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     build_against = df[df["is_chance_against"] & (df.get("Taktische Spielsituation") == "Auslösung")].shape[0] if "Taktische Spielsituation" in df.columns else 0
     build_diff = build_for - build_against
 
-    # KPI-Tabelle
-    kpis = [
-        (f"Chancen {team_name}", chances_for),
-        (f"Chancen {opponent_name}", chances_against),
-        ("Chancen-Differenz", f"{'+' if chance_diff >= 0 else ''}{chance_diff}"),
-        ("Corsi %", f"{corsi_pct} %"),
-        ("Fenwick %", f"{fenwick_pct} %"),
-        (f"5:5 Tore {team_name}", goals_for),
-        (f"5:5 Tore {opponent_name}", goals_against),
-        (f"Powerplay Tore {team_name} (5:4)", pp_goals_for),
-        (f"Powerplay Tore {opponent_name} (4:5)", pp_goals_against),
-        (f"Boxplay Tore {team_name} (4:5)", bp_goals_for),
-        (f"Boxplay Tore {opponent_name} (5:4)", bp_goals_against),
-        (f"6:5 Tore {team_name}", six_five_goals_for),
-        (f"6:5 Tore {opponent_name}", six_five_goals_against),
-        (f"5:6 Tore {team_name}", five_six_goals_for),
-        (f"5:6 Tore {opponent_name}", five_six_goals_against),
-        ("Tordifferenz (5:5)", f"{'+' if goal_diff >= 0 else ''}{goal_diff}"),
-        (f"Spezial % {team_name}", f"{special_pct_for} %"),
-        (f"Spezial % {opponent_name}", f"{special_pct_against} %"),
-        ("Effizienz (Tore/Chancen)", f"{efficiency} %"),
-        ("Mid-High %", f"{mid_high_pct} %"),
-        (f"ZOE {team_name} - Good %", f"{good_zoe_for_pct} %"),
-        (f"ZOE {team_name} - Total", zoe_for_total),
-        (f"ZOE {opponent_name} - Good %", f"{good_zoe_against_pct} %"),
-        (f"ZOE {opponent_name} - Total", zoe_against_total),
-        (f"Chancen {team_name} (Konter)", counter_for),
-        (f"Chancen {opponent_name} (Konter)", counter_against),
-        ("Konter-Differenz", f"{'+' if counter_diff >= 0 else ''}{counter_diff}"),
-        (f"Chancen {team_name} (Auslösung)", build_for),
-        (f"Chancen {opponent_name} (Auslösung)", build_against),
-        ("Auslösungs-Differenz", f"{'+' if build_diff >= 0 else ''}{build_diff}")
-    ]
+    # --- KPIs nach Kategorien ---
+    kategorien = {
+        "Chancen & Effizienz": [
+            (f"Chancen {team_name}", chances_for),
+            (f"Chancen {opponent_name}", chances_against),
+            ("Chancen-Differenz", f"{'+' if chance_diff >= 0 else ''}{chance_diff}"),
+            ("Effizienz (Tore/Chancen)", f"{efficiency} %"),
+            ("Mid-High %", f"{mid_high_pct} %")
+        ],
+        "Corsi & Fenwick": [
+            ("Corsi %", f"{corsi_pct} %"),
+            ("Fenwick %", f"{fenwick_pct} %")
+        ],
+        "Tore (5:5 + Spezial)": [
+            (f"5:5 Tore {team_name}", goals_for),
+            (f"5:5 Tore {opponent_name}", goals_against),
+            ("Tordifferenz (5:5)", f"{'+' if goal_diff >= 0 else ''}{goal_diff}"),
+            (f"Powerplay Tore {team_name} (5:4)", pp_goals_for),
+            (f"Powerplay Tore {opponent_name} (4:5)", pp_goals_against),
+            (f"Boxplay Tore {team_name} (4:5)", bp_goals_for),
+            (f"Boxplay Tore {opponent_name} (5:4)", bp_goals_against),
+            (f"6:5 Tore {team_name}", six_five_goals_for),
+            (f"6:5 Tore {opponent_name}", six_five_goals_against),
+            (f"5:6 Tore {team_name}", five_six_goals_for),
+            (f"5:6 Tore {opponent_name}", five_six_goals_against),
+            (f"Spezial % {team_name}", f"{special_pct_for} %"),
+            (f"Spezial % {opponent_name}", f"{special_pct_against} %")
+        ],
+        "Zone Entries (ZOE)": [
+            (f"ZOE {team_name} - Good %", f"{good_zoe_for_pct} %"),
+            (f"ZOE {team_name} - Total", zoe_for_total),
+            (f"ZOE {opponent_name} - Good %", f"{good_zoe_against_pct} %"),
+            (f"ZOE {opponent_name} - Total", zoe_against_total)
+        ],
+        "Taktische Spielsituationen": [
+            (f"Chancen {team_name} (Konter)", counter_for),
+            (f"Chancen {opponent_name} (Konter)", counter_against),
+            ("Konter-Differenz", f"{'+' if counter_diff >= 0 else ''}{counter_diff}"),
+            (f"Chancen {team_name} (Auslösung)", build_for),
+            (f"Chancen {opponent_name} (Auslösung)", build_against),
+            ("Auslösungs-Differenz", f"{'+' if build_diff >= 0 else ''}{build_diff}")
+        ]
+    }
 
-    return pd.DataFrame(kpis, columns=["Metrik", "Wert"])
+    # Flat DataFrame
+    df_kpis = pd.DataFrame(
+        [(cat, m, v) for cat, items in kategorien.items() for m, v in items],
+        columns=["Kategorie", "Metrik", "Wert"]
+    )
+
+    return df_kpis, kategorien
