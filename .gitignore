@@ -1,6 +1,24 @@
-echo ".DS_Store" >> .gitignore
-git add .gitignore
-git commit -m "Ignore .DS_Store"
+# --- Betriebssystem ---
 .DS_Store
-*.pyc
+
+# --- Python Cache ---
 __pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+.venv/
+venv/
+env/
+
+# --- Streamlit ---
+.streamlit/
+
+# --- Jupyter Notebook Checkpoints ---
+.ipynb_checkpoints/
+
+# --- Logs ---
+*.log
+
+# --- VS Code ---
+.vscode/
