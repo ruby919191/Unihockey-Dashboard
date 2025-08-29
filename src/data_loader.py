@@ -5,23 +5,47 @@ import pandas as pd
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 data_folder = os.path.join(BASE_DIR, "..", "data")
 
+# 🔧 Mapping für Tippfehler / Synonyme
+LABEL_MAPPING = {
+    "Direk": "Direkt",
+    "Handelek": "Handgelenk",
+    "Handgelek": "Handgelenk",
+    "Handglenk": "Handgelenk",
+    "Gezogen, Direk": "Gezogen, Direkt"
+}
+
 columns_to_clean = [
-    "Spieler Tigers", "Spieler Tigers 2" "Schusslabel", "Schussmetrik", "Taktische Spielsituation",
-    "Nummerische Spielsituation", "XG", "ZOE For", "ZOE Against",
-    "Drittel", "Linien For", "Linien Against"
+    "Spieler Tigers", "Spieler Tigers 2", "Schusslabels", "Schussmetrik",
+    "Taktische Spielsituation", "Nummerische Spielsituation", "XG",
+    "ZOE For", "ZOE Against", "Drittel", "Linien For", "Linien Against"
 ]
 
 def clean_first_value(df, columns):
     for col in columns:
         if col in df.columns:
-            df[col] = (
-                df[col]
-                .astype(str)
-                .str.split(",")
-                .str[0]
-                .str.strip()
-                .replace("nan", pd.NA)
-            )
+            if col == "Schusslabels":
+                # 🟢 Schusslabels: splitten + explodieren
+                df[col] = (
+                    df[col]
+                    .astype(str)
+                    .str.split(",")
+                    .apply(lambda x: [s.strip() for s in x if s.strip() and s != "nan"])
+                )
+                df = df.explode(col)
+
+                # Tippfehler / Synonyme ersetzen
+                df[col] = df[col].replace(LABEL_MAPPING)
+
+            else:
+                # Alle anderen Spalten: nur erstes Element nehmen
+                df[col] = (
+                    df[col]
+                    .astype(str)
+                    .str.split(",")
+                    .str[0]
+                    .str.strip()
+                    .replace("nan", pd.NA)
+                )
     return df
 
 def standardize_columns(df):
@@ -77,7 +101,9 @@ def get_all_games():
                             df["team_for"] = "Team For"
                             df["team_against"] = "Team Against"
 
+                    # 🟢 Cleaning (inkl. Schusslabels-Explode + Mapping)
                     df = clean_first_value(df, columns_to_clean)
+
                     all_data.append(df)
 
     if not all_data:
