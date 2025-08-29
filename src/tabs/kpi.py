@@ -1,18 +1,19 @@
+import pandas as pd
 import streamlit as st
-from src.analysis.gameplan_kpi_summary import generate_kpi_summary
+from src.analysis.gameplan_kpi_summary import generate_kpi_summary, generate_spielphasen_summary
+
 
 def get_box_color(metrik: str, wert) -> str:
-    """Bestimmt die Hintergrundfarbe für eine KPI-Box."""
-    # Default grau
+    """Bestimmt die Hintergrundfarbe für eine KPI-Box (ohne Median-Logik)."""
     color = "#f5f5f5"
 
-    # For vs Against
-    if "Tigers" in metrik:
-        color = "#d4edda"  # hellgrün
-    elif "Gegner" in metrik:
-        color = "#f8d7da"  # hellrot
+    # Standard-Logik für For vs Against
+    if "Tigers" in metrik and "Total" in metrik:
+        color = "#d4edda"
+    elif "Gegner" in metrik and "Total" in metrik:
+        color = "#f8d7da"
 
-    # Differenzen -> grün oder rot
+    # Differenz → grün oder rot
     if "Differenz" in metrik:
         try:
             val = int(str(wert).replace("+", "").replace("%", ""))
@@ -20,8 +21,14 @@ def get_box_color(metrik: str, wert) -> str:
         except:
             pass
 
-    # Prozentwerte neutral
-    if "%" in str(wert):
+    # Good / Bad %
+    if "Good %" in metrik:
+        color = "#c3e6cb"
+    if "Bad %" in metrik:
+        color = "#f5c6cb"
+
+    # Neutrale Prozentwerte
+    if "%" in str(wert) and all(x not in metrik for x in ["Good %", "Bad %", "Differenz"]):
         color = "#e2e3e5"
 
     return color
@@ -30,23 +37,39 @@ def get_box_color(metrik: str, wert) -> str:
 def render_kpi_tab(df, team_for_name, team_against_name):
     st.subheader("📌 KPI Übersicht")
 
-    # KPIs laden
+    # Daten laden
     df_kpis, kategorien = generate_kpi_summary(df, team_for_name, team_against_name)
+    df_spielphasen, kategorien_spielphasen = generate_spielphasen_summary(df, team_for_name, team_against_name)
 
-    # Dropdown
-    auswahl = st.selectbox("🔎 Wähle eine KPI-Kategorie:", list(kategorien.keys()))
+    # Auswahlblock
+    auswahl_block = st.selectbox("🔎 Wähle KPI-Block:", ["KPI Übersicht", "Spielphasen"])
 
-    # Boxen rendern
-    for metr, wert in kategorien[auswahl]:
-        color = get_box_color(metr, wert)
+    if auswahl_block == "KPI Übersicht":
+        auswahl = st.selectbox("📊 Kategorie wählen:", list(kategorien.keys()))
+        for metr, wert in kategorien[auswahl]:
+            color = get_box_color(metr, wert)
+            st.markdown(
+                f"""
+                <div style="padding:12px; margin-bottom:10px; border-radius:10px;
+                            background-color:{color}; box-shadow:1px 1px 5px rgba(0,0,0,0.1)">
+                    <strong>{metr}</strong><br>
+                    <span style="font-size:20px;">{wert}</span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
-        st.markdown(
-            f"""
-            <div style="padding:12px; margin-bottom:10px; border-radius:10px;
-                        background-color:{color}; box-shadow:1px 1px 5px rgba(0,0,0,0.1)">
-                <strong>{metr}</strong><br>
-                <span style="font-size:20px;">{wert}</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    elif auswahl_block == "Spielphasen":
+        unterkategorie = st.radio("⚙️ Spielphase wählen:", list(kategorien_spielphasen.keys()), horizontal=False)
+        for metr, wert in kategorien_spielphasen[unterkategorie]:
+            color = get_box_color(metr, wert)
+            st.markdown(
+                f"""
+                <div style="padding:12px; margin-bottom:10px; border-radius:10px;
+                            background-color:{color}; box-shadow:1px 1px 5px rgba(0,0,0,0.1)">
+                    <strong>{metr}</strong><br>
+                    <span style="font-size:20px;">{wert}</span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )

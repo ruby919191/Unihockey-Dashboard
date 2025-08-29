@@ -1,10 +1,7 @@
 import pandas as pd
 
 def count_goals_by_situation(df, team_name, opponent_name, situation_for, situation_against):
-    """
-    Zählt Tore in einer nummerischen Spielsituation, getrennt für team_name und opponent_name.
-    Funktioniert für Saison- und Divers-Dateien.
-    """
+    """Zählt Tore in einer nummerischen Spielsituation, getrennt für team_name und opponent_name."""
     df_for = df[df["Nummerische Spielsituation"] == situation_for]
     df_against = df[df["Nummerische Spielsituation"] == situation_against]
 
@@ -66,25 +63,6 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
     high_mid_for = df[df["Action"].str.contains("High Q Chance For|Mid Q Chance For", na=False)].shape[0]
     mid_high_pct = round((high_mid_for / chances_for) * 100, 1) if chances_for > 0 else 0
 
-    # ZOE-Auswertung
-    if "ZOE_For" in df.columns:
-        zoe_for = df[df["Action"].str.contains("ZOE For", na=False)]
-        good_zoe_for = zoe_for[zoe_for["ZOE_For"] == "Good"].shape[0] if not zoe_for.empty else 0
-        zoe_for_total = zoe_for.shape[0]
-        good_zoe_for_pct = round((good_zoe_for / zoe_for_total) * 100, 1) if zoe_for_total > 0 else 0
-    else:
-        good_zoe_for_pct = 0
-        zoe_for_total = 0
-
-    if "ZOE_Against" in df.columns:
-        zoe_against = df[df["Action"].str.contains("ZOE Gegner", na=False)]
-        good_zoe_against = zoe_against[zoe_against["ZOE_Against"] == "Good"].shape[0] if not zoe_against.empty else 0
-        zoe_against_total = zoe_against.shape[0]
-        good_zoe_against_pct = round((good_zoe_against / zoe_against_total) * 100, 1) if zoe_against_total > 0 else 0
-    else:
-        good_zoe_against_pct = 0
-        zoe_against_total = 0
-
     # Konter / Auslösung
     counter_for = df[df["is_chance_for"] & (df.get("Taktische Spielsituation") == "Konter")].shape[0] if "Taktische Spielsituation" in df.columns else 0
     counter_against = df[df["is_chance_against"] & (df.get("Taktische Spielsituation") == "Konter")].shape[0] if "Taktische Spielsituation" in df.columns else 0
@@ -122,12 +100,6 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
             (f"Spezial % {team_name}", f"{special_pct_for} %"),
             (f"Spezial % {opponent_name}", f"{special_pct_against} %")
         ],
-        "Zone Entries (ZOE)": [
-            (f"ZOE {team_name} - Good %", f"{good_zoe_for_pct} %"),
-            (f"ZOE {team_name} - Total", zoe_for_total),
-            (f"ZOE {opponent_name} - Good %", f"{good_zoe_against_pct} %"),
-            (f"ZOE {opponent_name} - Total", zoe_against_total)
-        ],
         "Taktische Spielsituationen": [
             (f"Chancen {team_name} (Konter)", counter_for),
             (f"Chancen {opponent_name} (Konter)", counter_against),
@@ -138,10 +110,53 @@ def generate_kpi_summary(df, team_name="Tigers", opponent_name="Gegner"):
         ]
     }
 
-    # Flat DataFrame
     df_kpis = pd.DataFrame(
         [(cat, m, v) for cat, items in kategorien.items() for m, v in items],
         columns=["Kategorie", "Metrik", "Wert"]
     )
 
     return df_kpis, kategorien
+
+
+def generate_spielphasen_summary(df, team_name="Tigers", opponent_name="Gegner"):
+    def calc_totals(for_pattern, against_pattern):
+        total_for = df["Action"].str.contains(for_pattern, na=False).sum()
+        total_against = df["Action"].str.contains(against_pattern, na=False).sum()
+        return total_for, total_against
+
+    # --- Berechnungen ---
+    nachsetzen = calc_totals("Nachsetzen For", "Nachsetzen Against")
+    pressing = calc_totals("Pressing For", "Pressing Against")
+    zoe_exits = calc_totals("Zone-Exits For", "Zone-Exits Against")
+    zoe_pressing = calc_totals("ZOE For gg. Pressing", "ZOE Against gg. Pressing")
+    zoe_gesamt = calc_totals("ZOE For", "ZOE Against")
+
+    kategorien = {
+        "Nachsetzen": [
+            (f"Nachsetzen {team_name} - Total", nachsetzen[0]),
+            (f"Nachsetzen {opponent_name} - Total", nachsetzen[1]),
+        ],
+        "Pressing": [
+            (f"Pressing {team_name} - Total", pressing[0]),
+            (f"Pressing {opponent_name} - Total", pressing[1]),
+        ],
+        "Zone-Exits": [
+            (f"Zone-Exits {team_name} - Total", zoe_exits[0]),
+            (f"Zone-Exits {opponent_name} - Total", zoe_exits[1]),
+        ],
+        "ZOE gg. Pressing": [
+            (f"ZOE gg. Pressing {team_name} - Total", zoe_pressing[0]),
+            (f"ZOE gg. Pressing {opponent_name} - Total", zoe_pressing[1]),
+        ],
+        "ZOE Gesamt": [
+            (f"ZOE {team_name} - Total", zoe_gesamt[0]),
+            (f"ZOE {opponent_name} - Total", zoe_gesamt[1]),
+        ]
+    }
+
+    df_spielphasen = pd.DataFrame(
+        [(cat, m, v) for cat, items in kategorien.items() for m, v in items],
+        columns=["Kategorie", "Metrik", "Wert"]
+    )
+
+    return df_spielphasen, kategorien
